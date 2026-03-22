@@ -38,6 +38,20 @@ In Claude Code, run:
 
 Run `/agents` to see the 152 agents loaded, or `/help` to see `ceo:ceo` listed under available skills.
 
+## Updating
+
+To update to the latest version:
+
+```
+/plugin install ceo@ceo-plugin
+```
+
+Then reload:
+
+```
+/reload-plugins
+```
+
 ## Usage
 
 Invoke the CEO skill:
