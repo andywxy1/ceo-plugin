@@ -8,7 +8,7 @@
     {
       "name": "ceo",
       "description": "Chief Executive Orchestrator - coordinates 170+ specialized agents across engineering, design, marketing, sales, and more. Multi-domain project execution with structured discovery, planning, and agent orchestration.",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "source": "./"
     }
   ]
