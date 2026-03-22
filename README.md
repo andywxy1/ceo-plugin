@@ -1,6 +1,6 @@
 # CEO - Chief Executive Orchestrator
 
-A Claude Code plugin that coordinates 170+ specialized AI agents across engineering, design, marketing, sales, and more. The CEO conducts structured discovery, builds execution plans with dependencies, and orchestrates agent teams with hard gates, quality gates, and status reporting.
+A Claude Code plugin that coordinates 150+ specialized AI agents across engineering, design, marketing, sales, and more. The CEO conducts structured discovery, builds execution plans with dependencies, and orchestrates agent teams with hard gates, quality gates, and status reporting.
 
 ## What's Inside
 
