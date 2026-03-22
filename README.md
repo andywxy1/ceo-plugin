@@ -1,12 +1,13 @@
 # CEO - Chief Executive Orchestrator
 
-A Claude Code plugin that coordinates 170+ specialized AI agents across engineering, design, marketing, sales, and more. The CEO conducts structured discovery, builds execution plans with dependencies, and orchestrates agent teams with quality gates and status reporting.
+A Claude Code plugin that coordinates 170+ specialized AI agents across engineering, design, marketing, sales, and more. The CEO conducts structured discovery, builds execution plans with dependencies, and orchestrates agent teams with hard gates, quality gates, and status reporting.
 
 ## What's Inside
 
 - **1 skill** (`/ceo:ceo`) - the meta-orchestrator that runs the show
 - **152 specialized agents** spanning 13 domains (engineering, design, marketing, sales, product, project management, testing, support, paid media, game development, spatial/XR, specialized, strategy)
-- **18 reference docs** - NEXUS framework, phase playbooks, scenario runbooks, handoff templates
+- **19 reference docs** - NEXUS framework, phase playbooks, scenario runbooks, handoff templates, anti-patterns guide
+- **Session-start hook** - automatically suggests `/ceo` when multi-domain tasks are detected
 
 ## Installation
 
@@ -45,12 +46,63 @@ Invoke the CEO skill:
 /ceo:ceo
 ```
 
-The CEO follows a four-phase protocol:
+The CEO follows a strict **four-phase protocol** with hard gates at every transition:
 
 1. **Discovery** - asks questions to understand your project scope, domains, and constraints
+   - *Hard Gate: user must confirm project brief before advancing*
 2. **Planning** - matches agents to needs, builds an execution plan with workstreams and dependencies
-3. **Pre-flight** - spawns key agents in review-only mode to surface ambiguities before committing to work
+   - *Hard Gate: user must explicitly approve the plan before any agents spawn*
+3. **Pre-flight** - spawns key agents in review-only mode to surface ambiguities before committing to work (mandatory for ALL project scales)
+   - *Hard Gate: all ambiguities must be resolved before execution begins*
 4. **Execution** - orchestrates agents in parallel, manages handoffs, tracks progress with checkpoints
+   - *Hard Gate: every task output verified against acceptance criteria before marking complete*
+
+## Protocol Enforcement
+
+The CEO uses multiple enforcement layers to prevent common orchestration failures:
+
+| Layer | Mechanism |
+|-------|-----------|
+| **Hard Gates** | `<HARD-GATE>` blocks at every phase transition -- non-negotiable barriers |
+| **Verification Protocol** | Every task output verified against acceptance criteria before marking complete |
+| **Checklist-to-Task** | Quality gate criteria become tracked Tasks with evidence requirements |
+| **Rationalization Prevention** | 12-entry table of common CEO shortcuts with rebuttals |
+| **Red Flag Callouts** | 10 internal thoughts that trigger immediate re-evaluation |
+| **Anti-Pattern Guide** | 10 documented orchestration failure modes with fixes |
+| **Rigid/Flexible Classification** | Clear distinction between non-negotiable protocols and adaptable guidelines |
+
+### Rigid Protocols (never bend)
+
+Phase sequence, hard gates, Tier 1 discovery questions, quality gate checklists, 3-retry escalation limit, CEO-never-implements rule, handoff template format, verification protocol, plan approval gate, mandatory pre-flight.
+
+### Flexible Protocols (adapt to context)
+
+Number of agents per phase, sprint duration, parallel tracks, scale classification, scenario runbook selection, Tier 2/3 question selection, checkpoint frequency.
+
+## NEXUS Pipeline (Sprint/Full Scale)
+
+For larger projects, execution maps to the 7-phase NEXUS pipeline:
+
+```
+Phase 0: Intelligence & Discovery (3-7d)     -> Gate: Executive Summary Generator
+Phase 1: Strategy & Architecture (5-10d)      -> Gate: Studio Producer + Reality Checker
+Phase 2: Foundation & Scaffolding (3-5d)       -> Gate: DevOps + Evidence Collector
+Phase 3: Build & Iterate (2-12wk)             -> Gate: Agents Orchestrator
+Phase 4: Quality & Hardening (3-7d)           -> Gate: Reality Checker (sole authority)
+Phase 5: Launch & Growth (2-4wk)              -> Gate: Studio Producer + Analytics Reporter
+Phase 6: Operate & Evolve (ongoing)           -> Governance: Studio Producer
+```
+
+Every NEXUS phase has a hard gate, mandatory checklist-to-task conversion, and evidence requirements.
+
+## Scenario Runbooks
+
+Pre-built activation templates for common project types:
+
+- **Startup MVP** (4-6 weeks, 18-22 agents) - compressed discovery through launch
+- **Enterprise Feature** (8-12 weeks) - full compliance and multi-team coordination
+- **Marketing Campaign** (2-4 weeks) - multi-channel content production
+- **Incident Response** (1-5 days) - P0/P1 emergency response
 
 ## Agent Domains
 

@@ -14,6 +14,16 @@ Validate the opportunity before committing resources. No building until the prob
 - [ ] Stakeholder sponsor identified
 - [ ] Budget for discovery phase approved
 
+<HARD-GATE>
+Do NOT activate any discovery agents until all pre-conditions are confirmed.
+Do NOT advance to Phase 1 until the Quality Gate Checklist below is complete with evidence for EVERY item.
+"Most items pass" is not "all items pass." Run every criterion.
+</HARD-GATE>
+
+### Mandatory: Checklist-to-Task Conversion
+
+When entering this phase, the CEO MUST create a Task (via TaskCreate) for EACH quality gate criterion below. Each task must include the evidence source and acceptance criteria. A criterion is only complete when its task is marked `completed` with evidence attached.
+
 ## Agent Activation Sequence
 
 ### Wave 1: Parallel Launch (Day 1)

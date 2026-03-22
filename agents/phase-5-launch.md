@@ -15,6 +15,17 @@ Coordinate go-to-market execution across all channels simultaneously. Maximum im
 - [ ] Production deployment plan approved
 - [ ] Marketing content pipeline ready (from Phase 3 Track B)
 
+<HARD-GATE>
+Do NOT begin launch preparations until the Reality Checker has issued a READY verdict in Phase 4.
+"NEEDS WORK" means return to Phase 3 — it does NOT mean "proceed with caution."
+Do NOT advance to Phase 6 until Studio Producer AND Analytics Reporter confirm stable launch metrics.
+A launch that requires immediate hotfixes is not a stable launch.
+</HARD-GATE>
+
+### Mandatory: Checklist-to-Task Conversion
+
+When entering this phase, the CEO MUST create Tasks for: T-1 technical readiness checks, T-1 content readiness checks, T-0 deployment verification, and post-launch stability monitoring. Each task requires evidence (deployment logs, metrics screenshots, channel activation confirmation).
+
 ## Launch Timeline
 
 ### T-7: Pre-Launch Week

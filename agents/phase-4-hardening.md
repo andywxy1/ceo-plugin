@@ -14,6 +14,17 @@ The final quality gauntlet. The Reality Checker defaults to "NEEDS WORK" — you
 - [ ] Phase 3 Handoff Package received
 - [ ] All features implemented and individually verified
 
+<HARD-GATE>
+Do NOT begin hardening until ALL Phase 3 tasks are verified complete (not just "assigned" or "in progress").
+Do NOT advance to Phase 5 until the Reality Checker issues a READY verdict — this is the sole authority.
+NEEDS WORK is the EXPECTED first-pass result. 2-3 revision cycles are normal and healthy.
+"Close enough" is NOT "READY." Only "READY" is "READY."
+</HARD-GATE>
+
+### Mandatory: Checklist-to-Task Conversion
+
+When entering this phase, the CEO MUST create a Task (via TaskCreate) for EACH of the 7 quality gate criteria below. Each task must include: the specific threshold, the evidence source agent, and acceptance criteria. The Reality Checker's verdict task must be created LAST and blocked by all other criterion tasks.
+
 ## Critical Mindset
 
 > **The Reality Checker's default verdict is NEEDS WORK.**

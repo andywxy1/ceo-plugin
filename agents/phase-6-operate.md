@@ -15,6 +15,19 @@ Sustained operations with continuous improvement. The product is live — now ma
 - [ ] Operational cadences established
 - [ ] Baseline metrics documented
 
+<HARD-GATE>
+Do NOT enter sustained operations until Phase 5 confirms stable launch (no P0/P1 in 48 hours).
+For ongoing operations: every incident response MUST follow the severity-based protocol below.
+Feature development in Phase 6 MUST use the compressed NEXUS-Micro cycle — no cowboy coding.
+</HARD-GATE>
+
+### Mandatory: Checklist-to-Task Conversion
+
+For Phase 6, the CEO creates recurring verification tasks at each cadence boundary:
+- **Weekly:** Create tasks for Analytics Reporter weekly review, Feedback Synthesizer summary, Sprint Prioritizer backlog grooming
+- **Monthly:** Create tasks for Executive Summary, Finance review, Compliance monitoring, Brand audit
+- **Quarterly:** Create tasks for Strategic portfolio review, Process efficiency audit, Tech debt assessment
+
 ## Operational Cadences
 
 ### Continuous (Always Active)

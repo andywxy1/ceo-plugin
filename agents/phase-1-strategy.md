@@ -14,6 +14,16 @@ Define what we're building, how it's structured, and what success looks like —
 - [ ] Phase 0 Handoff Package received
 - [ ] Stakeholder alignment on project scope
 
+<HARD-GATE>
+Do NOT begin Phase 1 without a GO decision from Phase 0's Executive Summary Generator.
+Do NOT advance to Phase 2 until Studio Producer AND Reality Checker have both signed off on the Quality Gate.
+Dual sign-off means BOTH must approve — one is not sufficient.
+</HARD-GATE>
+
+### Mandatory: Checklist-to-Task Conversion
+
+When entering this phase, the CEO MUST create a Task (via TaskCreate) for EACH quality gate criterion. Each task must include the evidence source and acceptance criteria. A criterion is only complete when its task is marked `completed` with evidence attached.
+
 ## Agent Activation Sequence
 
 ### Step 1: Strategic Framing (Day 1-3, Parallel)

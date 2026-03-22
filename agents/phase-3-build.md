@@ -16,6 +16,17 @@ Implement all features through continuous Dev↔QA loops. Every task is validate
 - [ ] Design system and component library ready
 - [ ] API scaffold with auth system ready
 
+<HARD-GATE>
+Do NOT begin sprint execution until ALL pre-conditions are verified with evidence.
+Do NOT advance to Phase 4 until the Agents Orchestrator confirms 100% sprint task completion with QA evidence.
+"All tasks assigned" is not "all tasks complete." Every task must pass the Dev-QA loop.
+After 3 failed retries on any task, ESCALATE — do not continue retrying.
+</HARD-GATE>
+
+### Mandatory: Checklist-to-Task Conversion
+
+When entering this phase, the CEO MUST create Tasks for each sprint's quality gate criteria. At each sprint boundary, create verification tasks for: all tasks QA'd, API endpoints validated, performance baselines met, brand consistency verified, zero P0/P1 bugs, acceptance criteria met, and code review completed.
+
 ## The Dev↔QA Loop — Core Mechanic
 
 The Agents Orchestrator manages every task through this cycle:

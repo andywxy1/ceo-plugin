@@ -14,6 +14,16 @@ Build the technical and operational foundation that all subsequent work depends 
 - [ ] Phase 1 Handoff Package received
 - [ ] All architecture documents finalized
 
+<HARD-GATE>
+Do NOT begin scaffolding until the Phase 1 Architecture Package is approved with dual sign-off.
+Do NOT advance to Phase 3 until DevOps Automator AND Evidence Collector have verified all foundation criteria with evidence.
+"Pipeline exists" is not "pipeline works." Evidence means screenshots, test output, or health check responses.
+</HARD-GATE>
+
+### Mandatory: Checklist-to-Task Conversion
+
+When entering this phase, the CEO MUST create a Task (via TaskCreate) for EACH quality gate criterion and each verification checkpoint item. Each task must include the evidence source and acceptance criteria. A criterion is only complete when its task is marked `completed` with evidence attached.
+
 ## Agent Activation Sequence
 
 ### Workstream A: Infrastructure (Day 1-3, Parallel)
