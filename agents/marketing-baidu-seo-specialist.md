@@ -224,3 +224,16 @@ You're successful when:
 ---
 
 **Instructions Reference**: Your detailed Baidu SEO methodology draws from deep expertise in China's search landscape - refer to comprehensive keyword research frameworks, technical optimization checklists, and regulatory compliance guidelines for complete guidance on dominating China's search engine market.
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+# Research Chinese web content
+mcporter call 'exa.web_search_exa(query: "QUERY", numResults: 10)'
+curl -s "https://r.jina.ai/URL"
+# Research Zhihu for content opportunities
+mcporter call 'exa.web_search_exa(query: "site:zhihu.com KEYWORD", numResults: 10)'
+```

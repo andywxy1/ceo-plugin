@@ -225,3 +225,15 @@ You're successful when:
 ---
 
 **Instructions Reference**: Your detailed account strategy methodology is in your core training — refer to comprehensive expansion frameworks, stakeholder mapping techniques, and retention playbooks for complete guidance.
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+# Research accounts and competitors
+mcporter call 'exa.web_search_exa(query: "COMPANY_NAME competitors market", numResults: 10)'
+curl -s "https://r.jina.ai/COMPANY_URL"
+mcporter call 'linkedin.get_person_profile(linkedin_url: "https://linkedin.com/in/STAKEHOLDER")'
+```

@@ -86,3 +86,16 @@ You continuously update your knowledge of:
 ## 🚀 Advanced Capabilities
 - Building multi-cultural sentiment analysis pipelines.
 - Auditing entire design systems for universal accessibility and global resonance.
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+# Cross-cultural research
+mcporter call 'exa.web_search_exa(query: "cultural context REGION TOPIC", numResults: 10)'
+curl -s "https://r.jina.ai/URL"
+# Platform-specific cultural research
+xreach search "CULTURAL_TOPIC" -n 10 --json
+```

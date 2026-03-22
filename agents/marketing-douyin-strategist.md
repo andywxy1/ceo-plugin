@@ -147,3 +147,18 @@ D. Relatability: "Does anyone else lose it every time XXX happens?"
 - Livestream GPM > 500 yuan
 - DOU+ ROI > 1:3
 - Monthly follower growth rate > 15%
+
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+mcporter call 'douyin.parse_douyin_video_info(share_link: "https://v.douyin.com/xxx/")'
+mcporter call 'douyin.get_douyin_download_link(share_link: "https://v.douyin.com/xxx/")'
+mcporter call 'exa.web_search_exa(query: "site:douyin.com QUERY", numResults: 10)'
+```
+
+### Publishing
+If Douyin Open Platform API is configured, use it. Otherwise produce content as files for manual posting.

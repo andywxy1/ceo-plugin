@@ -306,3 +306,14 @@ ORDER BY avg_cumulative_spend DESC;
 - User NPS (Net Promoter Score) > 40
 - Per-user private domain acquisition cost < 5 yuan (including materials and labor)
 - Private domain GMV share of total brand GMV > 20%
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+# Research WeChat ecosystem
+mcporter call 'exa.web_search_exa(query: "private domain WeChat SCRM", numResults: 10)'
+curl -s "https://r.jina.ai/URL"
+```

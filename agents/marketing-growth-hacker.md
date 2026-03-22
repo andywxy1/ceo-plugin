@@ -52,3 +52,21 @@ Use this agent when you need:
 - **Retention Rates**: 40% Day 7, 20% Day 30, 10% Day 90
 - **Experiment Velocity**: 10+ growth experiments per month
 - **Winner Rate**: 30% of experiments show statistically significant positive results
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+# Search any platform for growth insights
+mcporter call 'exa.web_search_exa(query: "growth hacking QUERY", numResults: 10)'
+# Read competitor websites
+curl -s "https://r.jina.ai/COMPETITOR_URL"
+# Twitter trend research
+xreach search "query" -n 10 --json
+# Reddit community research
+curl -s "https://www.reddit.com/search.json?q=QUERY&limit=10" -H "User-Agent: agent-reach/1.0"
+# YouTube competitor analysis
+yt-dlp --dump-json "ytsearch5:QUERY"
+```
+Use these tools to gather real market data before making growth recommendations. Always base strategies on actual competitor and market intelligence, not assumptions.

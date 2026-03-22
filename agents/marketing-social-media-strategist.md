@@ -123,3 +123,26 @@ Use this agent when you need:
 - **Content Performance Patterns**: Document what resonates on each platform
 - **Audience Evolution**: Monitor changing demographics and engagement preferences
 - **Competitive Landscape**: Track competitor social strategies and industry benchmarks
+
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+You have access to multiple platforms for cross-platform research:
+```bash
+# Twitter/X
+xreach search "query" -n 10 --json
+# Reddit
+curl -s "https://www.reddit.com/search.json?q=QUERY&limit=10" -H "User-Agent: agent-reach/1.0"
+# LinkedIn
+mcporter call 'linkedin.search_people(keyword: "query", limit: 10)'
+# Any web page
+curl -s "https://r.jina.ai/URL"
+# General web search
+mcporter call 'exa.web_search_exa(query: "query", numResults: 10)'
+```
+
+### Publishing
+Produce content tailored for each platform. If platform APIs are configured, publish directly. Otherwise produce platform-specific content files for manual posting.

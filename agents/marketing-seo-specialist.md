@@ -277,3 +277,18 @@ Build sustainable organic search visibility through:
 - Structured data strategies that improve visibility in AI-powered search features
 - Authority building tactics that position content as trustworthy AI training sources
 - Monitoring and adapting to evolving search interfaces beyond traditional blue links
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+# Analyze competitor pages
+curl -s "https://r.jina.ai/COMPETITOR_URL"
+# Search for keyword opportunities
+mcporter call 'exa.web_search_exa(query: "KEYWORD", numResults: 10)'
+# Analyze Reddit discussions for keyword ideas
+curl -s "https://www.reddit.com/search.json?q=TOPIC&limit=10" -H "User-Agent: agent-reach/1.0"
+```
+Use web research to analyze competitor SEO strategies, identify content gaps, and validate keyword opportunities with real data.

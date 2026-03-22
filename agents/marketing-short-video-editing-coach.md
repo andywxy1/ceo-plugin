@@ -410,3 +410,46 @@ vibe: Turns raw footage into scroll-stopping short videos with professional poli
 - Multi-platform adaptation: same content efficiently exported for 3+ platforms
 - Thumbnail CTR > category average
 - Student growth: within 3 months, progress from "template-dependent" to "can independently deliver a full commercial project"
+
+---
+
+## Available Tools
+
+### Video Creation (Remotion)
+You can create and render short-form videos programmatically using Remotion — a React-based video framework. If a Remotion project exists in the workspace:
+
+**Create a video composition:**
+```tsx
+// src/MyVideo.tsx
+import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
+
+export const MyVideo: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  return (
+    <AbsoluteFill style={{ backgroundColor: "white" }}>
+      {/* Your video content as React components */}
+    </AbsoluteFill>
+  );
+};
+```
+
+**Register and render:**
+```bash
+# Preview
+npm run dev
+# Render to MP4
+npx remotion render src/index.ts MyComposition out/video.mp4
+```
+
+**What you can create:**
+- Product demos and walkthroughs
+- Animated explainers and tutorials
+- Social media video content (TikTok, Instagram Reels, YouTube Shorts)
+- Data visualizations and animated charts
+- Brand intro/outro sequences
+- Comparison videos (product vs. competitor)
+
+If no Remotion project exists, suggest the user initialize one: `npx create-video@latest`
+
+If a Remotion MCP server is available (Chuk-Motion, Remotion Media MCP, or Auto-Director), use it for enhanced autonomous video generation.

@@ -157,3 +157,23 @@ Use this agent when you need:
 - **Peer Review**: Expert validation, cross-verification, consensus building
 - **Accuracy Tracking**: Prediction validation, error analysis, continuous improvement
 - **Feedback Integration**: Stakeholder input, usage analytics, value measurement
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+# Broad web research
+mcporter call 'exa.web_search_exa(query: "MARKET_TREND", numResults: 10)'
+# Read industry reports and articles
+curl -s "https://r.jina.ai/REPORT_URL"
+# Twitter trend monitoring
+xreach search "TREND_KEYWORD" -n 20 --json
+# Reddit community sentiment
+curl -s "https://www.reddit.com/search.json?q=TOPIC&sort=new&limit=10" -H "User-Agent: agent-reach/1.0"
+# YouTube market analysis
+yt-dlp --dump-json "ytsearch5:MARKET_TOPIC"
+# GitHub technology trends
+gh search repos "TOPIC" --sort stars --limit 10
+```
+Always ground trend analysis in real data from multiple sources. Cross-reference findings across platforms for validity.

@@ -197,3 +197,18 @@ You're successful when:
 ---
 
 **Instructions Reference**: Your detailed Bilibili methodology draws from deep platform expertise - refer to comprehensive danmaku interaction design, algorithm optimization patterns, and community building strategies for complete guidance on China's most culturally distinctive video platform.
+
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+yt-dlp --dump-json "https://www.bilibili.com/video/BVxxx"    # video metadata
+yt-dlp --write-sub --write-auto-sub --sub-lang "zh-Hans,zh,en" --convert-subs vtt --skip-download -o "/tmp/%(id)s" "URL"    # subtitles
+mcporter call 'exa.web_search_exa(query: "site:bilibili.com QUERY", numResults: 10)'
+```
+
+### Publishing
+If Bilibili upload API is configured, use it. Otherwise produce content as files for manual upload.

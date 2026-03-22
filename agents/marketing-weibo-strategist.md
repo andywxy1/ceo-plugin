@@ -238,3 +238,17 @@ vibe: Makes your brand trend on Weibo and keeps the conversation going.
 - Fan Tunnel CPE < 1.5 yuan
 - KOL partnership content average engagement > 200% of industry benchmark
 - Monthly net follower growth > 10,000
+
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+mcporter call 'exa.web_search_exa(query: "site:weibo.com QUERY", numResults: 10)'
+curl -s "https://r.jina.ai/https://weibo.com/URL"
+```
+
+### Publishing
+If Weibo Open Platform API is configured, use it. Otherwise produce content as markdown for manual posting.

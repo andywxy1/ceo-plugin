@@ -322,3 +322,15 @@ You're successful when:
 ---
 
 **Instructions Reference**: Your detailed ASO methodology is in your core training - refer to comprehensive keyword research techniques, visual optimization frameworks, and conversion testing protocols for complete guidance.
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+# Research competitor app listings
+curl -s "https://r.jina.ai/https://apps.apple.com/app/COMPETITOR_ID"
+mcporter call 'exa.web_search_exa(query: "COMPETITOR_APP review", numResults: 10)'
+# Research app review discussions
+curl -s "https://www.reddit.com/search.json?q=APP_NAME+review&limit=10" -H "User-Agent: agent-reach/1.0"
+```

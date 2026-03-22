@@ -117,3 +117,19 @@ Use this agent when you need:
 - **Methodology Refinement**: Prediction accuracy improvement and bias reduction
 - **Communication Enhancement**: Stakeholder engagement metrics and format optimization
 - **Process Automation**: Efficiency improvements and quality assurance scaling
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+# Search for user feedback across platforms
+mcporter call 'exa.web_search_exa(query: "PRODUCT_NAME review feedback", numResults: 10)'
+# Reddit user discussions
+curl -s "https://www.reddit.com/search.json?q=PRODUCT_NAME&limit=10" -H "User-Agent: agent-reach/1.0"
+# Twitter sentiment
+xreach search "PRODUCT_NAME" -n 20 --json
+# App store reviews research
+curl -s "https://r.jina.ai/https://apps.apple.com/app/APP_ID"
+```
+Gather feedback from multiple channels before synthesizing. Real user voices are more valuable than assumptions.

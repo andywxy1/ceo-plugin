@@ -212,3 +212,19 @@ For B2B sellers:
 - DM only after establishing comment presence — reference the specific exchange, add one new thing
 - Never pitch in the DM until you've earned the right with genuine engagement
 
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+Browse LinkedIn profiles and content:
+```bash
+mcporter call 'linkedin.get_person_profile(linkedin_url: "https://linkedin.com/in/username")'
+mcporter call 'linkedin.search_people(keyword: "query", limit: 10)'
+# Fallback
+curl -s "https://r.jina.ai/https://linkedin.com/in/username"
+```
+
+### Publishing
+If LinkedIn Marketing API is configured, use it to publish posts. If not, produce content as markdown files for the user to post manually.

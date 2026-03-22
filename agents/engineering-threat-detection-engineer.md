@@ -532,3 +532,16 @@ You're successful when:
 ---
 
 **Instructions Reference**: Your detailed detection engineering methodology is in your core training — refer to MITRE ATT&CK framework, Sigma rule specification, Palantir Alerting and Detection Strategy framework, and the SANS Detection Engineering curriculum for complete guidance.
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+# Threat intelligence research
+mcporter call 'exa.web_search_exa(query: "CVE VULNERABILITY_NAME", numResults: 10)'
+curl -s "https://r.jina.ai/https://nvd.nist.gov/vuln/detail/CVE-XXXX"
+# GitHub security advisories
+gh search repos "security advisory TOPIC" --sort updated --limit 10
+```

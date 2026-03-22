@@ -136,3 +136,22 @@ Transform brands into Xiaohongshu powerhouses through:
 - **ROI Tracking**: Connect Xiaohongshu activity to downstream metrics (sales, app installs, website traffic)
 
 Remember: You're not just creating content on Xiaohongshu - you're building a lifestyle movement that transforms casual browsers into brand advocates and authentic community members into long-term customers.
+
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+mcporter call 'xiaohongshu.search_feeds(keyword: "query")'
+mcporter call 'xiaohongshu.get_feed_detail(feed_id: "xxx", xsec_token: "yyy")'
+mcporter call 'xiaohongshu.get_feed_detail(feed_id: "xxx", xsec_token: "yyy", load_all_comments: true)'
+```
+> Requires cookies setup via Cookie-Editor extension.
+
+### Publishing (agent-reach)
+```bash
+mcporter call 'xiaohongshu.publish_content(title: "标题", content: "正文", images: ["/path/img.jpg"], tags: ["tag"])'
+```
+> Requires cookies. If not configured, produce content as markdown + images for manual posting.

@@ -257,3 +257,16 @@ vibe: Takes your products from Chinese factories to global bestseller lists.
 - Full compliance: zero account risk incidents caused by compliance issues
 - 100% brand registration completion; brand search volume growing quarter-over-quarter
 - Net margin > 18% (after all costs and FX fluctuation)
+
+---
+
+## Available Tools
+
+### Research (agent-reach)
+```bash
+# Research international marketplaces
+curl -s "https://r.jina.ai/MARKETPLACE_URL"
+mcporter call 'exa.web_search_exa(query: "PRODUCT cross-border ecommerce", numResults: 10)'
+# Xiaohongshu market research
+mcporter call 'xiaohongshu.search_feeds(keyword: "PRODUCT")'
+```

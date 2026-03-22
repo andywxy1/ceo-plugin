@@ -91,7 +91,32 @@ For each domain/capability identified in discovery, select agents from the regis
 - **Support agents**: Provide quality gates, review, or cross-cutting concerns (testing, security, compliance).
 - **Optional agents**: Nice-to-have if user permits. Note these but don't include by default.
 
-### Step 4: Read NEXUS Framework (if needed)
+### Step 4: Check Dependencies
+
+After selecting agents, read `${CLAUDE_PLUGIN_ROOT}/agents/dependencies.md` and verify that the external tools those agents need are available.
+
+**Dependency checks:**
+```bash
+# Check impeccable (required by design/frontend agents)
+ls ~/.claude/skills/impeccable/ 2>/dev/null || ls ~/.claude/skills/frontend-design/ 2>/dev/null || echo "MISSING: impeccable"
+
+# Check agent-reach (required by social media/research/marketing agents)
+ls ~/.claude/skills/agent-reach/ 2>/dev/null || echo "MISSING: agent-reach"
+
+# Check Remotion (required by video production agents)
+ls node_modules/remotion/ 2>/dev/null || echo "MISSING: Remotion (optional — needed for video)"
+```
+
+**If Tier 1 dependencies are missing** (impeccable for design agents):
+Tell the user: "The agents I've selected need [X] to work properly. Here's how to install it: [instructions from dependencies.md]. Want me to wait while you set this up?"
+
+**If Tier 2 dependencies are missing** (agent-reach, Remotion):
+Tell the user: "I can proceed, but [agent names] will have limited capabilities without [X]. They'll produce strategy documents instead of being able to [research/create videos/etc.]. Want to install it now or continue without it?"
+
+**If Tier 3 dependencies are missing** (publishing APIs):
+Note this in the plan under Risks: "Publishing to [platforms] will require manual steps unless API credentials are configured. The CEO will prompt for setup when we reach execution."
+
+### Step 5: Read NEXUS Framework (if needed)
 
 For Sprint and Full scale projects, read relevant sections from the reference docs:
 - `${CLAUDE_PLUGIN_ROOT}/agents/nexus-strategy.md` -- for phase sequencing and coordination patterns
@@ -100,7 +125,7 @@ For Sprint and Full scale projects, read relevant sections from the reference do
 
 For Micro projects, skip this -- NEXUS is overkill.
 
-### Step 5: Build the Execution Plan
+### Step 6: Build the Execution Plan
 
 Structure the plan as:
 
@@ -137,7 +162,7 @@ Structure the plan as:
 - [risk]: [mitigation]
 ```
 
-### Step 6: Present Plan to User
+### Step 7: Present Plan to User
 
 Show the plan summary. Offer to show more detail on any workstream. Ask for approval, modifications, or questions.
 
@@ -150,7 +175,7 @@ No exceptions. "The user seems to want speed" is not approval. "Approved", "Go a
 "Looks good", "LGTM" ARE approval. If uncertain, ASK.
 </HARD-GATE>
 
-### Step 7: Create Project Directory and Tasks
+### Step 8: Create Project Directory and Tasks
 
 On approval:
 
@@ -634,4 +659,5 @@ These files contain coordination frameworks the CEO reads at runtime (do NOT inl
 - `${CLAUDE_PLUGIN_ROOT}/agents/scenario-marketing-campaign.md` -- Pre-built plan: marketing campaign
 - `${CLAUDE_PLUGIN_ROOT}/agents/scenario-incident-response.md` -- Pre-built plan: incident response
 - `${CLAUDE_PLUGIN_ROOT}/agents/orchestration-anti-patterns.md` -- Common orchestration failure modes and fixes
+- `${CLAUDE_PLUGIN_ROOT}/agents/dependencies.md` -- External skill dependencies, install instructions, and onboarding
 - `${CLAUDE_PLUGIN_ROOT}/skills/ceo/registry.json` -- Agent capability registry
