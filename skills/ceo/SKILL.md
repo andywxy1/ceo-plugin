@@ -39,6 +39,25 @@ After Tier 1 answers, classify the project:
 
 Tell the user: "This looks like a **[scale]** project. I have [N] more questions before I build the plan." This gives them control.
 
+### Mode Classification
+
+After understanding what the user has and what they need, classify the project mode:
+
+| Mode | Signal | Pipeline | Scenario Runbook |
+|------|--------|----------|-----------------|
+| **Build** | User needs something BUILT. "Build me an app", "Create a platform", nothing exists yet. | NEXUS (engineering phases 0-6) | `scenario-startup-mvp.md`, `scenario-enterprise-feature.md` |
+| **Growth** | User already HAS a product and needs help growing it. "I have an app, how do I get users?", "Help me monetize", "What's my business model?" | Growth Mode (phases G0-G6) | `scenario-product-growth.md` |
+| **Full Lifecycle** | User needs BOTH — build AND grow. "Build and launch a SaaS", "Create a product and bring it to market." | NEXUS first → Growth Mode after stable launch | Combined runbooks |
+
+**How to detect mode** — the key question is: **"What do you already have?"**
+- "Nothing" / "An idea" / "Some wireframes" → **Build Mode**
+- "A working app" / "A product we've been running" / "An MVP that works" → **Growth Mode**
+- "An MVP that needs polish AND distribution" / "Build and launch" → **Full Lifecycle**
+
+Tell the user: "This looks like a **[mode]** project — you [have/need] a product and want to [build it / grow it / build and grow it]. I'll use the **[pipeline name]** to guide us."
+
+**For Full Lifecycle mode**: Run NEXUS (Build) first. The CEO will suggest transitioning to Growth Mode after Phase 5 confirms a stable, deployed product (see Transition Detection below).
+
 ### Tier 2 -- Sprint/Full Scale (pick the most relevant 3-5)
 
 - Who are the stakeholders and what do they care about?
@@ -469,6 +488,54 @@ If execution reveals new information (scope change, unexpected blocker, user fee
 
 ---
 
+## Mode Transition Detection
+
+### Build → Growth Transition
+
+When running in Build Mode (NEXUS), the CEO monitors for the transition point to Growth Mode. The transition happens **after Phase 5 confirms a stable, deployed product** — not before.
+
+**Trigger conditions (ALL must be true):**
+1. Phase 4 Reality Checker has issued a READY verdict
+2. Phase 5 deployment is complete (product is live)
+3. Phase 5 stability confirmed (no P0/P1 incidents in 48 hours)
+4. Studio Producer + Analytics Reporter confirm stable launch
+
+**When triggered**, the CEO says:
+> "Your product is live and stable. Before we move to ongoing operations (Phase 6), have you thought about your growth strategy? I can switch to **Growth Mode** to work through business model, positioning, distribution channels, and content production. Want me to activate Growth Mode?"
+
+If the user says yes:
+1. Read `${CLAUDE_PLUGIN_ROOT}/agents/scenario-product-growth.md`
+2. Begin Growth Mode Phase G0 (Product & Situation Audit) — much of this data already exists from the build
+3. Fast-track through G0 using existing project knowledge
+4. Proceed through G1-G6
+
+If the user says no:
+- Proceed to NEXUS Phase 6 (Operate) as normal
+
+<HARD-GATE>
+Do NOT suggest Growth Mode transition until Phase 5 stability is confirmed.
+A product that crashes, has critical bugs, or is not yet deployed is NOT ready for growth investment.
+The product must be live, stable, and functioning before growth strategy makes sense.
+</HARD-GATE>
+
+### Growth → Build Transition
+
+When running in Growth Mode, agents may identify product issues that marketing cannot solve:
+- "Users churn because the onboarding flow is broken"
+- "Conversion drops because a critical feature is missing"
+- "Competitors have [feature] that we need to match"
+
+When this happens, the CEO surfaces it:
+> "The [agent] identified a product issue: [description]. This is a product problem, not a marketing problem — no amount of distribution will fix it. Want me to switch to Build Mode to address [specific gap], then return to Growth Mode?"
+
+If the user agrees:
+1. Pause Growth Mode execution
+2. Switch to Build Mode (NEXUS) with a focused scope (just the fix)
+3. Run through relevant NEXUS phases (likely Phase 3 Build + Phase 4 Harden only)
+4. When the fix is deployed and stable, return to Growth Mode where we left off
+
+---
+
 ## Task Completion Verification Protocol
 
 Before marking ANY task as `completed`, the CEO MUST verify the deliverable:
@@ -658,6 +725,7 @@ These files contain coordination frameworks the CEO reads at runtime (do NOT inl
 - `${CLAUDE_PLUGIN_ROOT}/agents/scenario-enterprise-feature.md` -- Pre-built plan: enterprise feature
 - `${CLAUDE_PLUGIN_ROOT}/agents/scenario-marketing-campaign.md` -- Pre-built plan: marketing campaign
 - `${CLAUDE_PLUGIN_ROOT}/agents/scenario-incident-response.md` -- Pre-built plan: incident response
+- `${CLAUDE_PLUGIN_ROOT}/agents/scenario-product-growth.md` -- Pre-built plan: Growth Mode (product already exists, need distribution/monetization)
 - `${CLAUDE_PLUGIN_ROOT}/agents/orchestration-anti-patterns.md` -- Common orchestration failure modes and fixes
 - `${CLAUDE_PLUGIN_ROOT}/agents/dependencies.md` -- External skill dependencies, install instructions, and onboarding
 - `${CLAUDE_PLUGIN_ROOT}/skills/ceo/registry.json` -- Agent capability registry
