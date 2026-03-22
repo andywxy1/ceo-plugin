@@ -15,40 +15,27 @@ A Claude Code plugin that coordinates 170+ specialized AI agents across engineer
 - [Claude Code](https://claude.ai/download) v1.0.33 or later
 - Run `claude --version` to check
 
-### Step 1: Register the marketplace
-
-Open your Claude Code settings:
-
-```bash
-claude settings
-```
-
-Add the marketplace under `extraKnownMarketplaces`:
-
-```json
-{
-  "extraKnownMarketplaces": {
-    "ceo-plugin": {
-      "source": "github",
-      "repo": "andywxy1/ceo-plugin"
-    }
-  }
-}
-```
-
-Or manually edit `~/.claude/settings.json` and add the block above.
-
-### Step 2: Install the plugin
+### Step 1: Add the marketplace
 
 In Claude Code, run:
+
+```
+/plugin marketplace add andywxy1/ceo-plugin
+```
+
+### Step 2: Install the plugin
 
 ```
 /plugin install ceo@ceo-plugin
 ```
 
-### Step 3: Verify
+### Step 3: Reload and verify
 
-Run `/help` to see `ceo:ceo` listed under available skills, or run `/agents` to see the 152 agents loaded.
+```
+/reload-plugins
+```
+
+Run `/agents` to see the 152 agents loaded, or `/help` to see `ceo:ceo` listed under available skills.
 
 ## Usage
 
