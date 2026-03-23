@@ -1,17 +1,45 @@
 **English** | [简体中文](README_CN.md)
 
-# CEO - Chief Executive Orchestrator
+<p align="center">
+  <img src="docs/assets/logo.png" width="300" alt="CEO Plugin Logo">
+</p>
 
-A Claude Code plugin that coordinates 150+ specialized AI agents across engineering, design, marketing, sales, and more. The CEO conducts structured discovery, builds execution plans with dependencies, and orchestrates agent teams with hard gates, quality gates, and status reporting.
+<h1 align="center">CEO - Chief Executive Orchestrator</h1>
 
-## What's Inside
+<p align="center">
+  <em>A Claude Code plugin that coordinates 164+ specialized AI agents across 13 domains.<br>Structured discovery. Dependency-aware planning. Hard-gated execution.</em>
+</p>
 
-- **1 skill** (`/ceo:ceo`) - the meta-orchestrator that runs the show
-- **152 specialized agents** spanning 13 domains (engineering, design, marketing, sales, product, project management, testing, support, paid media, game development, spatial/XR, specialized, strategy)
-- **19 reference docs** - NEXUS framework, phase playbooks, scenario runbooks, handoff templates, anti-patterns guide
-- **Session-start hook** - automatically suggests `/ceo` when multi-domain tasks are detected
+<p align="center">
+  <img src="https://img.shields.io/badge/version-2.0.0-00d4ff?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/agents-164+-f0b232?style=for-the-badge" alt="Agents">
+  <img src="https://img.shields.io/badge/domains-13-00d4ff?style=for-the-badge" alt="Domains">
+  <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge" alt="License">
+  <img src="https://img.shields.io/badge/Claude_Code-v1.0.33+-8B5CF6?style=for-the-badge" alt="Claude Code">
+</p>
 
-## Installation
+<p align="center">
+  <a href="https://andywxy1.github.io/ceo-plugin/">🌐 Visit Landing Page</a>
+</p>
+
+---
+
+## 🌐 Landing Page
+
+Explore the full interactive documentation, agent catalog, and live demos at **[andywxy1.github.io/ceo-plugin](https://andywxy1.github.io/ceo-plugin/)**.
+
+---
+
+## 📦 What's Inside
+
+- **1 skill** (`/ceo:ceo`) — the meta-orchestrator that runs the show
+- **164+ specialized agents** spanning 13 domains (engineering, design, marketing, sales, product, project management, testing, support, paid media, game development, spatial/XR, specialized, strategy)
+- **19 reference docs** — NEXUS framework, phase playbooks, scenario runbooks, handoff templates, anti-patterns guide
+- **Session-start hook** — automatically suggests `/ceo` when multi-domain tasks are detected
+
+---
+
+## 🚀 Installation
 
 ### Prerequisites
 
@@ -38,9 +66,11 @@ In Claude Code, run:
 /reload-plugins
 ```
 
-Run `/agents` to see the 152 agents loaded, or `/help` to see `ceo:ceo` listed under available skills.
+Run `/agents` to see the 164+ agents loaded, or `/help` to see `ceo:ceo` listed under available skills.
 
-## Updating
+---
+
+## 🔄 Updating
 
 To update to the latest version:
 
@@ -54,7 +84,9 @@ Then reload:
 /reload-plugins
 ```
 
-## Usage
+---
+
+## ⚡ Usage
 
 Invoke the CEO skill:
 
@@ -64,22 +96,32 @@ Invoke the CEO skill:
 
 The CEO follows a strict **four-phase protocol** with hard gates at every transition:
 
-1. **Discovery** - asks questions to understand your project scope, domains, and constraints
+```mermaid
+graph LR
+    A["🔍 Discovery"] -->|Hard Gate| B["📐 Planning"]
+    B -->|Hard Gate| C["✈️ Pre-flight"]
+    C -->|Hard Gate| D["🚀 Execution"]
+```
+
+1. **🔍 Discovery** — asks questions to understand your project scope, domains, and constraints
    - *Hard Gate: user must confirm project brief before advancing*
-2. **Planning** - matches agents to needs, builds an execution plan with workstreams and dependencies
+2. **📐 Planning** — matches agents to needs, builds an execution plan with workstreams and dependencies
    - *Hard Gate: user must explicitly approve the plan before any agents spawn*
-3. **Pre-flight** - spawns key agents in review-only mode to surface ambiguities before committing to work (mandatory for ALL project scales)
+3. **✈️ Pre-flight** — spawns key agents in review-only mode to surface ambiguities before committing to work (mandatory for ALL project scales)
    - *Hard Gate: all ambiguities must be resolved before execution begins*
-4. **Execution** - orchestrates agents in parallel, manages handoffs, tracks progress with checkpoints
+4. **🚀 Execution** — orchestrates agents in parallel, manages handoffs, tracks progress with checkpoints
    - *Hard Gate: every task output verified against acceptance criteria before marking complete*
 
-## Protocol Enforcement
+---
+
+<details>
+<summary><h2>🛡️ Protocol Enforcement</h2></summary>
 
 The CEO uses multiple enforcement layers to prevent common orchestration failures:
 
 | Layer | Mechanism |
 |-------|-----------|
-| **Hard Gates** | `<HARD-GATE>` blocks at every phase transition -- non-negotiable barriers |
+| **Hard Gates** | `<HARD-GATE>` blocks at every phase transition — non-negotiable barriers |
 | **Verification Protocol** | Every task output verified against acceptance criteria before marking complete |
 | **Checklist-to-Task** | Quality gate criteria become tracked Tasks with evidence requirements |
 | **Rationalization Prevention** | 12-entry table of common CEO shortcuts with rebuttals |
@@ -95,7 +137,12 @@ Phase sequence, hard gates, Tier 1 discovery questions, quality gate checklists,
 
 Number of agents per phase, sprint duration, parallel tracks, scale classification, scenario runbook selection, Tier 2/3 question selection, checkpoint frequency.
 
-## NEXUS Pipeline (Sprint/Full Scale)
+</details>
+
+---
+
+<details>
+<summary><h2>🔗 NEXUS Pipeline (Sprint/Full Scale)</h2></summary>
 
 For larger projects, execution maps to the 7-phase NEXUS pipeline:
 
@@ -111,34 +158,44 @@ Phase 6: Operate & Evolve (ongoing)           -> Governance: Studio Producer
 
 Every NEXUS phase has a hard gate, mandatory checklist-to-task conversion, and evidence requirements.
 
-## Scenario Runbooks
+</details>
+
+---
+
+## 📋 Scenario Runbooks
 
 Pre-built activation templates for common project types:
 
-- **Startup MVP** (4-6 weeks, 18-22 agents) - compressed discovery through launch
-- **Enterprise Feature** (8-12 weeks) - full compliance and multi-team coordination
-- **Marketing Campaign** (2-4 weeks) - multi-channel content production
-- **Incident Response** (1-5 days) - P0/P1 emergency response
+| Scenario | Timeline | Details |
+|----------|----------|---------|
+| **Startup MVP** | 4–6 weeks | 18–22 agents, compressed discovery through launch |
+| **Enterprise Feature** | 8–12 weeks | Full compliance and multi-team coordination |
+| **Marketing Campaign** | 2–4 weeks | Multi-channel content production |
+| **Incident Response** | 1–5 days | P0/P1 emergency response |
 
-## Agent Domains
+---
+
+## 🤖 Agent Domains
 
 | Domain | Agents | Examples |
 |--------|--------|----------|
-| Engineering | 23 | Backend Architect, Frontend Developer, DevOps, Security Engineer, SRE |
-| Marketing | 26 | SEO, TikTok, Xiaohongshu, Content Creator, Growth Hacker |
-| Game Dev | 19 | Unity, Unreal, Godot, Roblox, Narrative Designer, Level Designer |
-| Sales | 9 | Deal Strategist, Pipeline Analyst, Sales Coach, Proposal Strategist |
-| Design | 8 | UX Architect, UI Designer, Brand Guardian, Visual Storyteller |
-| Testing | 8 | API Tester, Performance Benchmarker, Accessibility Auditor |
-| Paid Media | 7 | PPC, Programmatic, Paid Social, Tracking Specialist |
-| Support | 6 | Analytics Reporter, Finance Tracker, Infrastructure Maintainer |
-| Project Mgmt | 6 | Project Shepherd, Studio Producer, Jira Workflow Steward |
-| Product | 5 | Product Manager, Sprint Prioritizer, Trend Researcher |
-| Spatial/XR | 5 | visionOS, WebXR, Metal Engineer, XR Interface Architect |
-| Specialized | 29 | MCP Builder, Workflow Architect, Document Generator, ZK Steward |
-| Strategy | 1 | Agents Orchestrator |
+| 🛠️ Engineering | 23 | Backend Architect, Frontend Developer, DevOps, Security Engineer, SRE |
+| 📣 Marketing | 26 | SEO, TikTok, Xiaohongshu, Content Creator, Growth Hacker |
+| 🎮 Game Dev | 19 | Unity, Unreal, Godot, Roblox, Narrative Designer, Level Designer |
+| 💼 Sales | 9 | Deal Strategist, Pipeline Analyst, Sales Coach, Proposal Strategist |
+| 🎨 Design | 8 | UX Architect, UI Designer, Brand Guardian, Visual Storyteller |
+| 🧪 Testing | 8 | API Tester, Performance Benchmarker, Accessibility Auditor |
+| 📺 Paid Media | 7 | PPC, Programmatic, Paid Social, Tracking Specialist |
+| 🔧 Support | 6 | Analytics Reporter, Finance Tracker, Infrastructure Maintainer |
+| 📊 Project Mgmt | 6 | Project Shepherd, Studio Producer, Jira Workflow Steward |
+| 💡 Product | 5 | Product Manager, Sprint Prioritizer, Trend Researcher |
+| 🥽 Spatial/XR | 5 | visionOS, WebXR, Metal Engineer, XR Interface Architect |
+| ⚙️ Specialized | 29 | MCP Builder, Workflow Architect, Document Generator, ZK Steward |
+| 🧠 Strategy | 1 | Agents Orchestrator |
 
-## Local Development
+---
+
+## 🧑‍💻 Local Development
 
 To test changes locally without installing:
 
@@ -148,6 +205,8 @@ claude --plugin-dir /path/to/ceo-plugin
 
 Run `/reload-plugins` after making changes to pick them up without restarting.
 
-## License
+---
+
+## 📄 License
 
 MIT

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEO Plugin - AI Agent Orchestrator for Claude Code</title>
+  <meta name="description" content="Chief Executive Orchestrator: A Claude Code plugin that coordinates 164+ specialized AI agents across 13 domains with a strict four-phase protocol.">
+  <meta name="theme-color" content="#0a0f1a">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ========== PARTICLE CANVAS ========== -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- ========== LANGUAGE SWITCHER ========== -->
+  <nav class="lang-switcher" aria-label="Language">
+    <a href="#hero" class="lang-active">EN</a>
+    <span class="lang-divider">|</span>
+    <a href="https://github.com/andywxy1/ceo-plugin/blob/main/README_CN.md">&#x4E2D;&#x6587;</a>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <img src="assets/logo.png" alt="CEO Plugin logo" class="hero-logo" width="200" height="200">
+      <h1 class="hero-title">Chief Executive Orchestrator</h1>
+      <p class="hero-subtitle">A Claude Code plugin that coordinates <span class="text-cyan">164+ specialized AI agents</span> across <span class="text-gold">13 domains</span></p>
+
+      <div class="hero-counters">
+        <div class="counter-item">
+          <span class="counter-number" data-target="164">0</span><span class="counter-plus">+</span>
+          <span class="counter-label">Agents</span>
+        </div>
+        <div class="counter-divider"></div>
+        <div class="counter-item">
+          <span class="counter-number" data-target="13">0</span>
+          <span class="counter-label">Domains</span>
+        </div>
+        <div class="counter-divider"></div>
+        <div class="counter-item">
+          <span class="counter-number" data-target="4">0</span><span class="counter-plus">-Phase</span>
+          <span class="counter-label">Protocol</span>
+        </div>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#installation" class="btn btn-primary">Get Started</a>
+        <a href="https://github.com/andywxy1/ceo-plugin" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <svg class="btn-icon" viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT'S INSIDE ========== -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title">What's Inside</h2>
+      <div class="features-grid">
+
+        <div class="feature-card" data-animate="fade-up">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <h3 class="feature-title">Meta-Orchestrator</h3>
+          <p class="feature-desc">One skill (<code>/ceo</code>) to discover, plan, and execute any multi-domain project with hard gates at every transition</p>
+        </div>
+
+        <div class="feature-card" data-animate="fade-up">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><path d="M9 7h6"/></svg>
+          </div>
+          <h3 class="feature-title">164+ Specialized Agents</h3>
+          <p class="feature-desc">From Backend Architects to TikTok Strategists, every domain covered with deep expertise</p>
+        </div>
+
+        <div class="feature-card" data-animate="fade-up">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><polyline points="4 4 2 4 2 10"/><line x1="4" y1="4" x2="2" y2="4"/></svg>
+          </div>
+          <h3 class="feature-title">NEXUS Pipeline</h3>
+          <p class="feature-desc">7-phase execution framework with quality gates, evidence requirements, and structured handoffs</p>
+        </div>
+
+        <div class="feature-card" data-animate="fade-up">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="feature-title">Scenario Runbooks</h3>
+          <p class="feature-desc">Pre-built templates for Startup MVP, Enterprise Features, Marketing Campaigns, and Incident Response</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOUR-PHASE PROTOCOL ========== -->
+  <section id="protocol" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Strict Four-Phase Protocol</h2>
+
+      <div class="protocol-timeline">
+        <div class="protocol-line" aria-hidden="true">
+          <div class="protocol-line-fill"></div>
+        </div>
+
+        <div class="protocol-phase" data-animate="fade-up">
+          <div class="phase-node">
+            <span class="phase-number">1</span>
+          </div>
+          <div class="phase-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3 class="phase-title">Discovery</h3>
+          <p class="phase-desc">Deep project understanding</p>
+          <p class="phase-gate"><span class="gate-label">Hard Gate:</span> Complete context map</p>
+        </div>
+
+        <div class="protocol-phase" data-animate="fade-up">
+          <div class="phase-node">
+            <span class="phase-number">2</span>
+          </div>
+          <div class="phase-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-5h6v5"/></svg>
+          </div>
+          <h3 class="phase-title">Planning</h3>
+          <p class="phase-desc">Agent matching &amp; execution plan</p>
+          <p class="phase-gate"><span class="gate-label">Hard Gate:</span> Approved execution plan</p>
+        </div>
+
+        <div class="protocol-phase" data-animate="fade-up">
+          <div class="phase-node">
+            <span class="phase-number">3</span>
+          </div>
+          <div class="phase-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+          </div>
+          <h3 class="phase-title">Pre-flight</h3>
+          <p class="phase-desc">Surface ambiguities before committing</p>
+          <p class="phase-gate"><span class="gate-label">Hard Gate:</span> Zero open questions</p>
+        </div>
+
+        <div class="protocol-phase" data-animate="fade-up">
+          <div class="phase-node">
+            <span class="phase-number">4</span>
+          </div>
+          <div class="phase-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          </div>
+          <h3 class="phase-title">Execution</h3>
+          <p class="phase-desc">Parallel orchestration with checkpoints</p>
+          <p class="phase-gate"><span class="gate-label">Hard Gate:</span> All evidence collected</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AGENT DOMAINS ========== -->
+  <section id="domains" class="section">
+    <div class="container">
+      <h2 class="section-title">13 Specialized Domains</h2>
+      <div class="domains-grid">
+
+        <div class="domain-card" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x2699;&#xFE0F;</div>
+          <h3 class="domain-name">Engineering</h3>
+          <span class="domain-count">23 agents</span>
+          <p class="domain-examples">Backend Architect, Frontend Dev, DevOps, Security Engineer</p>
+        </div>
+
+        <div class="domain-card" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x1F4E3;</div>
+          <h3 class="domain-name">Marketing</h3>
+          <span class="domain-count">26 agents</span>
+          <p class="domain-examples">SEO, TikTok, Xiaohongshu, Content Creator, Growth Hacker</p>
+        </div>
+
+        <div class="domain-card" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x1F3AE;</div>
+          <h3 class="domain-name">Game Dev</h3>
+          <span class="domain-count">19 agents</span>
+          <p class="domain-examples">Unity, Unreal, Godot, Roblox, Narrative Designer</p>
+        </div>
+
+        <div class="domain-card" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x1F4BC;</div>
+          <h3 class="domain-name">Sales</h3>
+          <span class="domain-count">9 agents</span>
+          <p class="domain-examples">Deal Strategist, Pipeline Analyst, Sales Coach</p>
+        </div>
+
+        <div class="domain-card" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x1F3A8;</div>
+          <h3 class="domain-name">Design</h3>
+          <span class="domain-count">8 agents</span>
+          <p class="domain-examples">UX Architect, UI Designer, Brand Guardian</p>
+        </div>
+
+        <div class="domain-card" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x1F9EA;</div>
+          <h3 class="domain-name">Testing</h3>
+          <span class="domain-count">8 agents</span>
+          <p class="domain-examples">API Tester, Performance Benchmarker, Accessibility Auditor</p>
+        </div>
+
+        <div class="domain-card" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x1F4FA;</div>
+          <h3 class="domain-name">Paid Media</h3>
+          <span class="domain-count">7 agents</span>
+          <p class="domain-examples">PPC, Programmatic, Paid Social, Tracking Specialist</p>
+        </div>
+
+        <div class="domain-card" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x1F6DF;</div>
+          <h3 class="domain-name">Support</h3>
+          <span class="domain-count">6 agents</span>
+          <p class="domain-examples">Analytics Reporter, Finance Tracker, Infrastructure Maintainer</p>
+        </div>
+
+        <div class="domain-card" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x1F4CA;</div>
+          <h3 class="domain-name">Project Mgmt</h3>
+          <span class="domain-count">6 agents</span>
+          <p class="domain-examples">Project Shepherd, Studio Producer, Jira Steward</p>
+        </div>
+
+        <div class="domain-card" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x1F4A1;</div>
+          <h3 class="domain-name">Product</h3>
+          <span class="domain-count">5 agents</span>
+          <p class="domain-examples">Product Manager, Sprint Prioritizer, Trend Researcher</p>
+        </div>
+
+        <div class="domain-card" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x1F97D;</div>
+          <h3 class="domain-name">Spatial / XR</h3>
+          <span class="domain-count">5 agents</span>
+          <p class="domain-examples">visionOS, WebXR, Metal Engineer, XR Architect</p>
+        </div>
+
+        <div class="domain-card" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x1F527;</div>
+          <h3 class="domain-name">Specialized</h3>
+          <span class="domain-count">29 agents</span>
+          <p class="domain-examples">MCP Builder, Workflow Architect, Document Generator</p>
+        </div>
+
+        <div class="domain-card domain-card-highlight" data-animate="fade-up">
+          <div class="domain-emoji" aria-hidden="true">&#x1F9E0;</div>
+          <h3 class="domain-name">Strategy</h3>
+          <span class="domain-count">1 agent</span>
+          <p class="domain-examples">Agents Orchestrator</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEXUS PIPELINE ========== -->
+  <section id="nexus" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">NEXUS Pipeline</h2>
+      <p class="section-subtitle">For Sprint &amp; Full-Scale Projects</p>
+
+      <div class="nexus-timeline">
+        <div class="nexus-line" aria-hidden="true">
+          <div class="nexus-line-fill"></div>
+        </div>
+
+        <div class="nexus-phase" data-animate="fade-up">
+          <div class="nexus-node"><span class="nexus-number">0</span></div>
+          <div class="nexus-content">
+            <h3 class="nexus-title">Intelligence &amp; Discovery</h3>
+            <span class="nexus-duration">3 - 7 days</span>
+            <p class="nexus-gate"><span class="gate-label">Gate:</span> Executive Summary Generator</p>
+          </div>
+        </div>
+
+        <div class="nexus-phase" data-animate="fade-up">
+          <div class="nexus-node"><span class="nexus-number">1</span></div>
+          <div class="nexus-content">
+            <h3 class="nexus-title">Strategy &amp; Architecture</h3>
+            <span class="nexus-duration">5 - 10 days</span>
+            <p class="nexus-gate"><span class="gate-label">Gate:</span> Studio Producer + Reality Checker</p>
+          </div>
+        </div>
+
+        <div class="nexus-phase" data-animate="fade-up">
+          <div class="nexus-node"><span class="nexus-number">2</span></div>
+          <div class="nexus-content">
+            <h3 class="nexus-title">Foundation &amp; Scaffolding</h3>
+            <span class="nexus-duration">3 - 5 days</span>
+            <p class="nexus-gate"><span class="gate-label">Gate:</span> DevOps + Evidence Collector</p>
+          </div>
+        </div>
+
+        <div class="nexus-phase" data-animate="fade-up">
+          <div class="nexus-node"><span class="nexus-number">3</span></div>
+          <div class="nexus-content">
+            <h3 class="nexus-title">Build &amp; Iterate</h3>
+            <span class="nexus-duration">2 - 12 weeks</span>
+            <p class="nexus-gate"><span class="gate-label">Gate:</span> Agents Orchestrator</p>
+          </div>
+        </div>
+
+        <div class="nexus-phase" data-animate="fade-up">
+          <div class="nexus-node"><span class="nexus-number">4</span></div>
+          <div class="nexus-content">
+            <h3 class="nexus-title">Quality &amp; Hardening</h3>
+            <span class="nexus-duration">3 - 7 days</span>
+            <p class="nexus-gate"><span class="gate-label">Gate:</span> Reality Checker</p>
+          </div>
+        </div>
+
+        <div class="nexus-phase" data-animate="fade-up">
+          <div class="nexus-node"><span class="nexus-number">5</span></div>
+          <div class="nexus-content">
+            <h3 class="nexus-title">Launch &amp; Growth</h3>
+            <span class="nexus-duration">2 - 4 weeks</span>
+            <p class="nexus-gate"><span class="gate-label">Gate:</span> Studio Producer + Analytics Reporter</p>
+          </div>
+        </div>
+
+        <div class="nexus-phase" data-animate="fade-up">
+          <div class="nexus-node"><span class="nexus-number">6</span></div>
+          <div class="nexus-content">
+            <h3 class="nexus-title">Operate &amp; Evolve</h3>
+            <span class="nexus-duration">Ongoing</span>
+            <p class="nexus-gate"><span class="gate-label">Governance:</span> Studio Producer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INSTALLATION ========== -->
+  <section id="installation" class="section">
+    <div class="container">
+      <h2 class="section-title">Get Started in 3 Steps</h2>
+
+      <div class="install-steps">
+        <div class="install-step" data-animate="fade-up">
+          <div class="step-badge">1</div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="code-label">Add the plugin</span>
+              <button class="copy-btn" data-copy="/plugin marketplace add andywxy1/ceo-plugin" aria-label="Copy command">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <pre><code><span class="code-prompt">$</span> /plugin marketplace add andywxy1/ceo-plugin</code></pre>
+          </div>
+        </div>
+
+        <div class="install-step" data-animate="fade-up">
+          <div class="step-badge">2</div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="code-label">Install the skill</span>
+              <button class="copy-btn" data-copy="/plugin install ceo@ceo-plugin" aria-label="Copy command">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <pre><code><span class="code-prompt">$</span> /plugin install ceo@ceo-plugin</code></pre>
+          </div>
+        </div>
+
+        <div class="install-step" data-animate="fade-up">
+          <div class="step-badge">3</div>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="code-label">Reload plugins</span>
+              <button class="copy-btn" data-copy="/reload-plugins" aria-label="Copy command">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <pre><code><span class="code-prompt">$</span> /reload-plugins</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="install-footer" data-animate="fade-up">
+        <p class="install-then">Then run <code>/ceo</code> to start orchestrating.</p>
+        <p class="install-prereq">Requires Claude Code v1.0.33+</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="CEO Plugin" class="footer-logo" width="32" height="32">
+        <span class="footer-name">CEO Plugin</span>
+      </div>
+      <div class="footer-links">
+        <span class="footer-license">MIT License</span>
+        <a href="https://github.com/andywxy1/ceo-plugin" target="_blank" rel="noopener noreferrer" class="footer-github">GitHub</a>
+      </div>
+      <p class="footer-love">Built with <span aria-label="love" class="text-love">&hearts;</span> for Claude Code</p>
+    </div>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
