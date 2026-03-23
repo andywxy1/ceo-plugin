@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/version-2.0.0-00d4ff?style=for-the-badge" alt="Version">
   <img src="https://img.shields.io/badge/agents-164+-f0b232?style=for-the-badge" alt="Agents">
   <img src="https://img.shields.io/badge/domains-13-00d4ff?style=for-the-badge" alt="Domains">
-  <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge" alt="License">
+  <img src="https://img.shields.io/badge/license-GPL--3.0-green?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/Claude_Code-v1.0.33+-8B5CF6?style=for-the-badge" alt="Claude Code">
 </p>
 
@@ -209,4 +209,4 @@ Run `/reload-plugins` after making changes to pick them up without restarting.
 
 ## 📄 License
 
-MIT
+GPL-3.0

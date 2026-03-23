@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/版本-2.0.0-00d4ff?style=for-the-badge" alt="版本">
   <img src="https://img.shields.io/badge/智能体-164+-f0b232?style=for-the-badge" alt="智能体">
   <img src="https://img.shields.io/badge/领域-13-00d4ff?style=for-the-badge" alt="领域">
-  <img src="https://img.shields.io/badge/许可证-MIT-green?style=for-the-badge" alt="许可证">
+  <img src="https://img.shields.io/badge/许可证-GPL--3.0-green?style=for-the-badge" alt="许可证">
   <img src="https://img.shields.io/badge/Claude_Code-v1.0.33+-8B5CF6?style=for-the-badge" alt="Claude Code">
 </p>
 
@@ -209,4 +209,4 @@ claude --plugin-dir /path/to/ceo-plugin
 
 ## 📄 许可证
 
-MIT
+GPL-3.0
