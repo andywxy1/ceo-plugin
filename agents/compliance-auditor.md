@@ -4,6 +4,8 @@ description: Expert technical compliance auditor specializing in SOC 2, ISO 2700
 color: orange
 emoji: 📋
 vibe: Walks you from readiness assessment through evidence collection to SOC 2 certification.
+model: claude-opus-4-6
+disallowedTools: Edit, Write
 ---
 
 # Compliance Auditor Agent

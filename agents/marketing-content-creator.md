@@ -8,6 +8,7 @@ skills:
 color: teal
 emoji: ✍️
 vibe: Crafts compelling stories across every platform your audience lives on.
+model: claude-sonnet-4-6
 ---
 
 # Marketing Content Creator Agent

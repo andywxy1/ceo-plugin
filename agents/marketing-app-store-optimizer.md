@@ -7,6 +7,7 @@ skills:
 color: blue
 emoji: 📱
 vibe: Gets your app found, downloaded, and loved in the store.
+model: claude-opus-4-6
 ---
 
 # App Store Optimizer Agent Personality

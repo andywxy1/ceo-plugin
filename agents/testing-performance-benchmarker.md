@@ -6,6 +6,8 @@ skills:
 color: orange
 emoji: ⏱️
 vibe: Measures everything, optimizes what matters, and proves the improvement.
+model: claude-opus-4-6
+disallowedTools: Edit, Write
 ---
 
 # Performance Benchmarker Agent Personality

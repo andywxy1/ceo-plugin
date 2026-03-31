@@ -9,6 +9,7 @@ skills:
 color: purple
 emoji: 🎬
 vibe: Transforms complex information into visual narratives that move people.
+model: claude-sonnet-4-6
 ---
 
 # Visual Storyteller Agent

@@ -4,6 +4,8 @@ description: Independent model QA expert who audits ML and statistical models en
 color: "#B22222"
 emoji: 🔬
 vibe: Audits ML models end-to-end — from data reconstruction to calibration testing.
+model: claude-opus-4-6
+disallowedTools: Edit, Write
 ---
 
 # Model QA Specialist

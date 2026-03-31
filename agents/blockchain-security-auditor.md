@@ -4,6 +4,8 @@ description: Expert smart contract security auditor specializing in vulnerabilit
 color: red
 emoji: 🛡️
 vibe: Finds the exploit in your smart contract before the attacker does.
+model: claude-opus-4-6
+disallowedTools: Edit, Write
 ---
 
 # Blockchain Security Auditor

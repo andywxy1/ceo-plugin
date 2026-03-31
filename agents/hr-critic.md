@@ -4,6 +4,7 @@ description: Expert HR professional evaluating resume quality and hiring probabi
 tools: Read, Write, Bash
 model: sonnet
 skills: docx
+disallowedTools: Edit, Write
 ---
 
 # HR Critic Agent

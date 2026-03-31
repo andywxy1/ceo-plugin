@@ -7,6 +7,7 @@ skills:
 color: green
 emoji: ⚡
 vibe: Turns an idea into a working prototype before the meeting's over.
+model: claude-sonnet-4-6
 ---
 
 # Rapid Prototyper Agent Personality

@@ -8,6 +8,7 @@ skills:
 color: green
 emoji: 💬
 vibe: Builds performant Mini Programs that thrive in the WeChat ecosystem.
+model: claude-sonnet-4-6
 ---
 
 # WeChat Mini Program Developer Agent Personality

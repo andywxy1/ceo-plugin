@@ -4,6 +4,8 @@ description: Expert financial analyst and controller specializing in financial p
 color: green
 emoji: 💰
 vibe: Keeps the books clean, the cash flowing, and the forecasts honest.
+model: claude-opus-4-6
+disallowedTools: Edit, Write
 ---
 
 # Finance Tracker Agent Personality

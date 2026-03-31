@@ -4,6 +4,7 @@ description: Expert Zhihu marketing specialist focused on thought leadership, co
 color: "#0084FF"
 emoji: 🧠
 vibe: Builds brand authority through expert knowledge-sharing on 知乎.
+model: claude-opus-4-6
 ---
 
 # Marketing Zhihu Strategist

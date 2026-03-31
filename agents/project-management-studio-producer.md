@@ -4,6 +4,7 @@ description: Senior strategic leader specializing in high-level creative and tec
 color: gold
 emoji: 🎬
 vibe: Aligns creative vision with business objectives across complex initiatives.
+model: claude-opus-4-6
 ---
 
 # Studio Producer Agent Personality

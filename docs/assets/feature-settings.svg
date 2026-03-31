@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+  <defs>
+    <linearGradient id="sbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a3e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="200" fill="url(#sbg)" rx="10" />
+  <text x="200" y="30" font-family="system-ui, sans-serif" font-size="13" fill="#c4c4e0" text-anchor="middle" font-weight="600">/ceo:setup</text>
+  <text x="200" y="48" font-family="system-ui, sans-serif" font-size="10" fill="#4a4a6a" text-anchor="middle">Interactive onboarding wizard</text>
+  <!-- Settings rows -->
+  <g transform="translate(40, 65)">
+    <!-- Row 1 -->
+    <rect x="0" y="0" width="320" height="28" rx="6" fill="#00d4ff" opacity="0.06" />
+    <text x="14" y="18" font-family="system-ui, monospace" font-size="10" fill="#00d4ff">model_tier</text>
+    <text x="200" y="18" font-family="system-ui, sans-serif" font-size="10" fill="#6a6a8a" text-anchor="middle">max_quality | balanced | max_speed</text>
+    <!-- Row 2 -->
+    <rect x="0" y="34" width="320" height="28" rx="6" fill="#8B5CF6" opacity="0.06" />
+    <text x="14" y="52" font-family="system-ui, monospace" font-size="10" fill="#8B5CF6">verify_fix</text>
+    <text x="200" y="52" font-family="system-ui, sans-serif" font-size="10" fill="#6a6a8a" text-anchor="middle">enabled, max_retries, reviewer_model</text>
+    <!-- Row 3 -->
+    <rect x="0" y="68" width="320" height="28" rx="6" fill="#f0b232" opacity="0.06" />
+    <text x="14" y="86" font-family="system-ui, monospace" font-size="10" fill="#f0b232">team_mode</text>
+    <text x="200" y="86" font-family="system-ui, sans-serif" font-size="10" fill="#6a6a8a" text-anchor="middle">auto | always | never</text>
+    <!-- Row 4 -->
+    <rect x="0" y="102" width="320" height="28" rx="6" fill="#2ecc71" opacity="0.06" />
+    <text x="14" y="120" font-family="system-ui, monospace" font-size="10" fill="#2ecc71">checkpoint</text>
+    <text x="200" y="120" font-family="system-ui, sans-serif" font-size="10" fill="#6a6a8a" text-anchor="middle">task | workstream | phase</text>
+  </g>
+</svg>

@@ -8,6 +8,7 @@ skills:
 color: blue
 emoji: 🎨
 vibe: Your brand's fiercest protector and most passionate advocate.
+model: claude-opus-4-6
 ---
 
 # Brand Guardian Agent Personality

@@ -4,6 +4,7 @@ description: Expert application security engineer specializing in threat modelin
 color: red
 emoji: 🔒
 vibe: Models threats, reviews code, and designs security architecture that actually holds.
+model: claude-opus-4-6
 ---
 
 # Security Engineer Agent

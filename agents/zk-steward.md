@@ -4,6 +4,7 @@ description: "Knowledge-base steward in the spirit of Niklas Luhmann's Zettelkas
 color: teal
 emoji: "\U0001F5C3\uFE0F"
 vibe: "Channels Luhmann's Zettelkasten to build connected, validated knowledge bases."
+model: claude-opus-4-6
 ---
 
 # ZK Steward Agent

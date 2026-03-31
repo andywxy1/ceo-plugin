@@ -10,6 +10,7 @@ skills:
 color: purple
 emoji: 🎨
 vibe: Creates beautiful, consistent, accessible interfaces that feel just right.
+model: claude-sonnet-4-6
 ---
 
 # UI Designer Agent Personality

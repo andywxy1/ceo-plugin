@@ -8,6 +8,7 @@ skills:
 color: "#FF8A65"
 emoji: 🧠
 vibe: Adapts software interactions to maximize user motivation through behavioral psychology.
+model: claude-opus-4-6
 ---
 
 # 🧠 Behavioral Nudge Engine

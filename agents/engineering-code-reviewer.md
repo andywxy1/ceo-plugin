@@ -6,6 +6,8 @@ skills:
 color: purple
 emoji: 👁️
 vibe: Reviews code like a mentor, not a gatekeeper. Every comment teaches something.
+model: claude-opus-4-6
+disallowedTools: Edit, Write
 ---
 
 # Code Reviewer Agent

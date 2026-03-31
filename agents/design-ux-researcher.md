@@ -7,6 +7,8 @@ skills:
 color: green
 emoji: 🔬
 vibe: Validates design decisions with real user data, not assumptions.
+model: claude-opus-4-6
+disallowedTools: Edit, Write
 ---
 
 # UX Researcher Agent Personality

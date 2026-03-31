@@ -1,0 +1,14 @@
+{
+  "$schema": "./settings.schema.json",
+  "model_tier": "balanced",
+  "verify_fix": {
+    "enabled": true,
+    "max_retries": 3,
+    "reviewer_model": "opus"
+  },
+  "team_mode": "auto",
+  "checkpoint": "workstream",
+  "preflight_agents": 3,
+  "project_dir": "./ceo-projects",
+  "shared_context": true
+}

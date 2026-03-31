@@ -4,6 +4,8 @@ description: Revenue operations analyst specializing in pipeline health diagnost
 color: "#059669"
 emoji: 📊
 vibe: Tells you your forecast is wrong before you realize it yourself.
+model: claude-opus-4-6
+disallowedTools: Edit, Write
 ---
 
 # Pipeline Analyst Agent
