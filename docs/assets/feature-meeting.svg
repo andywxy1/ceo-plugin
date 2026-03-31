@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280">
+  <defs>
+    <linearGradient id="mbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a3e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="280" fill="url(#mbg)" rx="10" />
+  <!-- Title -->
+  <text x="200" y="28" font-family="system-ui, sans-serif" font-size="13" fill="#c4c4e0" text-anchor="middle" font-weight="600">/ceo:meeting</text>
+  <text x="200" y="46" font-family="system-ui, sans-serif" font-size="10" fill="#4a4a6a" text-anchor="middle">Cross-functional product review</text>
+  <!-- Meeting table (rounded rect) -->
+  <rect x="100" y="60" width="200" height="130" rx="65" fill="none" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="4,4" opacity="0.4" />
+  <!-- Agent nodes around the table -->
+  <!-- Top -->
+  <circle cx="200" cy="70" r="16" fill="none" stroke="#f0b232" stroke-width="1.5" />
+  <text x="200" y="74" font-family="system-ui, sans-serif" font-size="7" fill="#f0b232" text-anchor="middle" font-weight="600">VP Prod</text>
+  <!-- Top-right -->
+  <circle cx="280" cy="90" r="16" fill="none" stroke="#00d4ff" stroke-width="1.5" />
+  <text x="280" y="88" font-family="system-ui, sans-serif" font-size="7" fill="#00d4ff" text-anchor="middle">Lead</text>
+  <text x="280" y="97" font-family="system-ui, sans-serif" font-size="7" fill="#00d4ff" text-anchor="middle">Eng</text>
+  <!-- Right -->
+  <circle cx="300" cy="140" r="16" fill="none" stroke="#00d4ff" stroke-width="1.5" />
+  <text x="300" y="138" font-family="system-ui, sans-serif" font-size="7" fill="#00d4ff" text-anchor="middle">Head</text>
+  <text x="300" y="147" font-family="system-ui, sans-serif" font-size="7" fill="#00d4ff" text-anchor="middle">Security</text>
+  <!-- Bottom-right -->
+  <circle cx="270" cy="180" r="16" fill="none" stroke="#00d4ff" stroke-width="1.5" />
+  <text x="270" y="178" font-family="system-ui, sans-serif" font-size="7" fill="#00d4ff" text-anchor="middle">Staff</text>
+  <text x="270" y="187" font-family="system-ui, sans-serif" font-size="7" fill="#00d4ff" text-anchor="middle">Eng</text>
+  <!-- Bottom -->
+  <circle cx="200" cy="190" r="16" fill="none" stroke="#00d4ff" stroke-width="1.5" />
+  <text x="200" y="188" font-family="system-ui, sans-serif" font-size="7" fill="#00d4ff" text-anchor="middle">Head</text>
+  <text x="200" y="197" font-family="system-ui, sans-serif" font-size="7" fill="#00d4ff" text-anchor="middle">Design</text>
+  <!-- Bottom-left -->
+  <circle cx="130" cy="180" r="16" fill="none" stroke="#00d4ff" stroke-width="1.5" />
+  <text x="130" y="178" font-family="system-ui, sans-serif" font-size="7" fill="#00d4ff" text-anchor="middle">Platform</text>
+  <text x="130" y="187" font-family="system-ui, sans-serif" font-size="7" fill="#00d4ff" text-anchor="middle">Lead</text>
+  <!-- Left -->
+  <circle cx="100" cy="130" r="16" fill="none" stroke="#2ecc71" stroke-width="1.5" />
+  <text x="100" y="128" font-family="system-ui, sans-serif" font-size="7" fill="#2ecc71" text-anchor="middle">Head</text>
+  <text x="100" y="137" font-family="system-ui, sans-serif" font-size="7" fill="#2ecc71" text-anchor="middle">Growth</text>
+  <!-- SendMessage lines (conversation) -->
+  <line x1="216" y1="72" x2="264" y2="88" stroke="#8B5CF6" stroke-width="0.8" opacity="0.5" />
+  <line x1="280" y1="106" x2="298" y2="124" stroke="#8B5CF6" stroke-width="0.8" opacity="0.5" />
+  <line x1="270" y1="166" x2="216" y2="184" stroke="#8B5CF6" stroke-width="0.8" opacity="0.5" />
+  <line x1="184" y1="186" x2="146" y2="178" stroke="#8B5CF6" stroke-width="0.8" opacity="0.5" />
+  <line x1="116" y1="134" x2="184" y2="76" stroke="#8B5CF6" stroke-width="0.8" opacity="0.3" />
+  <!-- Chat bubbles -->
+  <text x="240" y="115" font-family="system-ui, monospace" font-size="6" fill="#8B5CF6" opacity="0.7">SendMsg</text>
+  <text x="145" y="155" font-family="system-ui, monospace" font-size="6" fill="#8B5CF6" opacity="0.7">SendMsg</text>
+  <!-- Observer below -->
+  <line x1="200" y1="210" x2="200" y2="230" stroke="#4a4a6a" stroke-width="1" stroke-dasharray="3,3" />
+  <rect x="130" y="232" width="140" height="34" rx="8" fill="none" stroke="#e74c3c" stroke-width="1.5" />
+  <text x="200" y="248" font-family="system-ui, sans-serif" font-size="9" fill="#e74c3c" text-anchor="middle" font-weight="600">Meeting Observer</text>
+  <text x="200" y="260" font-family="system-ui, monospace" font-size="7" fill="#4a4a6a" text-anchor="middle">Detailed Report (Opus)</text>
+</svg>

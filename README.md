@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-3.0.0-00d4ff?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/version-3.1.0-00d4ff?style=for-the-badge" alt="Version">
   <img src="https://img.shields.io/badge/agents-170+-f0b232?style=for-the-badge" alt="Agents">
   <img src="https://img.shields.io/badge/domains-13-00d4ff?style=for-the-badge" alt="Domains">
   <img src="https://img.shields.io/badge/license-GPL--3.0-green?style=for-the-badge" alt="License">
@@ -24,7 +24,23 @@
   <img src="docs/assets/divider.svg" width="900">
 </p>
 
-## What's New in v3.0.0
+## What's New in v3.1.0
+
+<table>
+<tr>
+<td>
+
+<p align="center">
+  <img src="docs/assets/feature-meeting.svg" width="380" alt="Product Meeting">
+</p>
+
+**Product Meeting** &mdash; `/ceo:meeting` assembles a cross-functional team of agents acting as company staff. They discuss your product freely via `SendMessage` &mdash; proposing bugs, debating improvements, asking each other questions across departments. An independent Meeting Observer then reads the full transcript and writes a comprehensive report with per-person narratives, severity-rated findings, blind-spot analysis, and prioritized action items.
+
+</td>
+</tr>
+</table>
+
+### Previously in v3.0.0
 
 <table>
 <tr>
@@ -84,7 +100,7 @@
 
 ## What's Inside
 
-- **2 skills** &mdash; `/ceo:ceo` (the meta-orchestrator) + `/ceo:setup` (onboarding wizard)
+- **3 skills** &mdash; `/ceo:ceo` (the meta-orchestrator) + `/ceo:meeting` (product meeting simulation) + `/ceo:setup` (onboarding wizard)
 - **170+ specialized agents** spanning 13 domains
 - **19 reference docs** &mdash; NEXUS framework, phase playbooks, scenario runbooks, handoff templates, anti-patterns guide
 - **Settings system** &mdash; `settings.json` + JSON Schema for full configurability

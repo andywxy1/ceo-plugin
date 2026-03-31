@@ -48,7 +48,7 @@
   <text x="450" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#00d4ff" text-anchor="middle" opacity="0.9">170+ Agents  /  Team Coordination  /  Verify-Fix Loops  /  Hard-Gated Execution</text>
   <!-- Version -->
   <rect x="395" y="220" width="110" height="28" rx="14" fill="none" stroke="url(#accent)" stroke-width="1.5" />
-  <text x="450" y="239" font-family="system-ui, -apple-system, monospace" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="600">v3.0.0</text>
+  <text x="450" y="239" font-family="system-ui, -apple-system, monospace" font-size="13" fill="#00d4ff" text-anchor="middle" font-weight="600">v3.1.0</text>
   <!-- Bottom accent -->
   <rect x="0" y="296" width="900" height="4" fill="url(#accent)" rx="2" />
 </svg>
