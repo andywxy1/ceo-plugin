@@ -73,6 +73,62 @@ Show the user the proposed team:
 
 Wait for user confirmation. Adjust if they request changes.
 
+### Offer Companion Page
+
+After the roster is confirmed, ask:
+
+> "Would you like me to create a **live companion web page** for this meeting? It shows the roster, a real-time transcript, and accumulating findings — you can open it in your browser to follow along. (Uses the impeccable design skill for styling.)
+>
+> - **Yes** — I'll create and update it as the meeting progresses
+> - **No** — I'll skip the page and just deliver the final report"
+
+If the user says **yes**, set `companion_page = true` and note the output path: `ceo-projects/{project-name}/meeting-live.html`. The page will be created in Phase 3 and updated throughout the meeting.
+
+If the user says **no** (or declines), set `companion_page = false` and skip all companion page steps below.
+
+---
+
+## Phase 2.5: Create Companion Page (if opted in)
+
+**Skip entirely if `companion_page = false`.**
+
+Use the **impeccable:frontend-design** skill to generate a single-file HTML page at `ceo-projects/{project-name}/meeting-live.html`.
+
+The page should include:
+
+1. **Header** — project name, date, "Live Meeting" indicator
+2. **Roster panel** — list of attendees with company role titles, styled as avatar cards or a sidebar
+3. **Transcript area** — scrollable feed where each message shows: speaker role, timestamp, message content. Color-coded by department.
+4. **Findings sidebar** — accumulating list of findings tagged by severity (P0 = red, P1 = orange, P2 = yellow, P3 = gray) with confidence scores
+5. **Status bar** — "Meeting in progress..." / "Observer writing report..." / "Meeting complete"
+
+Design guidelines for the impeccable skill:
+- Dark theme (matches the CEO plugin aesthetic — deep navy/charcoal with accent colors)
+- Clean, readable typography — this is a document, not a dashboard
+- Severity colors: P0 = `#e74c3c`, P1 = `#f39c12`, P2 = `#f1c40f`, P3 = `#95a5a6`
+- Department color coding for transcript messages (engineering = cyan, security = red, product = gold, design = purple, growth = green, QA = orange, devops = blue)
+- Responsive — works on desktop and tablet
+- All content is static HTML with inline CSS and vanilla JS — no build tools, no dependencies, no frameworks
+- The page is a snapshot that the facilitator overwrites as new messages arrive
+
+After generating the initial page, tell the user:
+> "Companion page created at `{path}`. Open it in your browser to follow along."
+
+### Updating the Companion Page During the Meeting
+
+Each time you receive a `SendMessage` from a meeting agent:
+
+1. Append the message to the transcript section of the HTML file (with speaker, timestamp, severity tags if present)
+2. If the message contains a finding (tagged P0-P3), add it to the findings sidebar
+3. Overwrite `meeting-live.html` with the updated content
+
+Use the **Edit** tool to update the HTML efficiently — append new transcript entries and findings rather than regenerating the entire page each time.
+
+When the meeting ends and the observer report is ready:
+1. Update the status bar to "Meeting complete"
+2. Add a "Full Report" section at the bottom with the executive summary from the observer
+3. Add a link/note pointing to the full report file
+
 ---
 
 ## Phase 3: Open the Meeting
