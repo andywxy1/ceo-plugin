@@ -73,18 +73,23 @@ Show the user the proposed team:
 
 Wait for user confirmation. Adjust if they request changes.
 
-### Offer Companion Page
+### Offer Companion Page & Set Duration
 
-After the roster is confirmed, ask:
+After the roster is confirmed, ask both questions together:
 
-> "Would you like me to create a **live companion web page** for this meeting? It shows the roster, a real-time transcript, and accumulating findings — you can open it in your browser to follow along. (Uses the impeccable design skill for styling.)
+> "Two quick options before we start:
 >
-> - **Yes** — I'll create and update it as the meeting progresses
-> - **No** — I'll skip the page and just deliver the final report"
+> **1. Live companion page?** A web page you can open in your browser to watch the meeting unfold — roster, color-coded transcript, findings sidebar. Auto-refreshes every 3 seconds.
+> - **Yes** — create the page
+> - **No** — skip it, just deliver the final report
+>
+> **2. Meeting duration?** I'll broadcast a 2-minute warning before time's up, then wrap the meeting.
+> - **15 minutes** (default)
+> - **10 minutes** (quick sync)
+> - **25 minutes** (deep dive)
+> - **Custom** — tell me how many minutes"
 
-If the user says **yes**, set `companion_page = true` and note the output path: `ceo-projects/{project-name}/meeting-live.html`. The page will be created in Phase 3 and updated throughout the meeting.
-
-If the user says **no** (or declines), set `companion_page = false` and skip all companion page steps below.
+Set `companion_page` and `meeting_duration` based on the user's answers. Default: `companion_page = true`, `meeting_duration = 15`.
 
 ---
 
@@ -92,42 +97,74 @@ If the user says **no** (or declines), set `companion_page = false` and skip all
 
 **Skip entirely if `companion_page = false`.**
 
-Use the **impeccable:frontend-design** skill to generate a single-file HTML page at `ceo-projects/{project-name}/meeting-live.html`.
+A pre-built HTML template ships with the plugin at `${CLAUDE_PLUGIN_ROOT}/skills/meeting/templates/meeting-live.html`. This template has the full layout, styling, and auto-refresh JS already built in.
 
-The page should include:
+### Step 1: Copy and populate the template
 
-1. **Header** — project name, date, "Live Meeting" indicator
-2. **Roster panel** — list of attendees with company role titles, styled as avatar cards or a sidebar
-3. **Transcript area** — scrollable feed where each message shows: speaker role, timestamp, message content. Color-coded by department.
-4. **Findings sidebar** — accumulating list of findings tagged by severity (P0 = red, P1 = orange, P2 = yellow, P3 = gray) with confidence scores
-5. **Status bar** — "Meeting in progress..." / "Observer writing report..." / "Meeting complete"
+1. Read `${CLAUDE_PLUGIN_ROOT}/skills/meeting/templates/meeting-live.html`
+2. Replace the placeholders:
+   - `{{PROJECT_NAME}}` → the project name
+   - `{{DATE}}` → today's date
+   - `{{DURATION}}` → the meeting duration in minutes
+3. Between `<!-- ROSTER_START -->` and `<!-- ROSTER_END -->`, inject the attendee entries:
+   ```html
+   <div class="attendee" data-role="{role-slug}">
+     <div class="attendee-dot" style="background: var(--clr-{department})"></div>
+     <div class="attendee-info">
+       <div class="attendee-role">{Company Role Title}</div>
+       <div class="attendee-agent">{Agent Name}</div>
+     </div>
+   </div>
+   ```
+   Map each agent to a department color variable: `engineering`, `security`, `product`, `design`, `growth`, `qa`, `devops`. Default to `engineering` if unclear.
+4. Add the opening system message between `<!-- TRANSCRIPT_START -->` and `<!-- TRANSCRIPT_END -->`:
+   ```html
+   <div class="message system">
+     <div class="message-body">Meeting started — {N} attendees — {duration} minutes</div>
+   </div>
+   ```
+5. Write the populated file to `ceo-projects/{project-name}/meeting-live.html`
 
-Design guidelines for the impeccable skill:
-- Dark theme (matches the CEO plugin aesthetic — deep navy/charcoal with accent colors)
-- Clean, readable typography — this is a document, not a dashboard
-- Severity colors: P0 = `#e74c3c`, P1 = `#f39c12`, P2 = `#f1c40f`, P3 = `#95a5a6`
-- Department color coding for transcript messages (engineering = cyan, security = red, product = gold, design = purple, growth = green, QA = orange, devops = blue)
-- Responsive — works on desktop and tablet
-- All content is static HTML with inline CSS and vanilla JS — no build tools, no dependencies, no frameworks
-- The page is a snapshot that the facilitator overwrites as new messages arrive
+Tell the user:
+> "Companion page created at `ceo-projects/{project-name}/meeting-live.html`. Open it in your browser to follow along — it auto-refreshes every 3 seconds."
 
-After generating the initial page, tell the user:
-> "Companion page created at `{path}`. Open it in your browser to follow along."
+### Step 2: Update during the meeting
 
-### Updating the Companion Page During the Meeting
+Each time you receive a `SendMessage` from a meeting agent, use the **Edit** tool to:
 
-Each time you receive a `SendMessage` from a meeting agent:
+1. **Append a message** before `<!-- TRANSCRIPT_END -->`:
+   ```html
+   <div class="message" style="border-left-color: var(--clr-{department})">
+     <div class="message-header">
+       <span class="message-sender" style="color: var(--clr-{department})">{Company Role}</span>
+       <span class="message-time">{HH:MM}</span>
+       <div class="message-tags">
+         <!-- include if severity tag present: -->
+         <span class="tag tag-{p0|p1|p2|p3}">{P0|P1|P2|P3}</span>
+         <!-- include if confidence present: -->
+         <span class="tag tag-confidence">{N}/10</span>
+       </div>
+     </div>
+     <div class="message-body">{message content}</div>
+   </div>
+   ```
 
-1. Append the message to the transcript section of the HTML file (with speaker, timestamp, severity tags if present)
-2. If the message contains a finding (tagged P0-P3), add it to the findings sidebar
-3. Overwrite `meeting-live.html` with the updated content
+2. **If the message contains a finding** (tagged P0-P3), insert it into the findings sidebar before `<!-- FINDINGS_END -->`:
+   ```html
+   <div class="finding {p0|p1|p2|p3}">
+     <div class="finding-text">{finding description}</div>
+     <div class="finding-meta">{Role} — {confidence}/10 — {evidence}</div>
+   </div>
+   ```
+   Also hide the `#findings-empty` element and update `#findings-count`.
 
-Use the **Edit** tool to update the HTML efficiently — append new transcript entries and findings rather than regenerating the entire page each time.
+3. **Update the message count** in the status bar (`#message-count`).
 
-When the meeting ends and the observer report is ready:
-1. Update the status bar to "Meeting complete"
-2. Add a "Full Report" section at the bottom with the executive summary from the observer
-3. Add a link/note pointing to the full report file
+4. **At the 2-minute warning**: add the timer `warning` class and update status text.
+
+5. **When meeting ends**: change status badge to `complete`, status dot to `idle`, status text to "Meeting complete". Append executive summary from the observer to the transcript area.
+
+Use **Edit** to do targeted insertions — do NOT regenerate the full file each time.
 
 ---
 
@@ -213,22 +250,26 @@ Your job in this meeting:
 
 == MEETING PROTOCOL ==
 
+- This meeting has a **{meeting_duration}-minute time limit**. The facilitator will
+  broadcast a 2-minute warning, then close the meeting.
 - Start by posting your opening assessment (your domain's state + top concerns) via
   SendMessage(to="facilitator", message="OPENING: ...")
 - Then engage with colleagues as their openings come in
 - When you see something interesting from another department, respond to them directly
 - You may send as many messages as you need — this is a real discussion
-- When you feel you've said everything important, send:
+- When you receive the 2-MINUTE WARNING, wrap up: send your final priorities via
   SendMessage(to="facilitator", message="CLOSING: {your final priorities and action items}")
+- If you finish early, send your CLOSING message anytime — don't wait for the timer
 
 Do NOT wait for permission to speak. Do NOT hold back because something seems minor.
 Raise everything — severity tags will sort the wheat from the chaff.
 ```
 
-### Step 4: Facilitate
+### Step 4: Facilitate & Track Time
 
 As the facilitator, your role during the meeting is:
 
+**Facilitation:**
 1. **Monitor** — watch for inbound `SendMessage` from agents (OPENING, discussion, CLOSING)
 2. **Nudge if needed** — if a department hasn't been heard from, prompt them:
    `SendMessage(to="{quiet-agent}", message="We haven't heard from {role} yet — what's your take on {topic under discussion}?")`
@@ -237,15 +278,34 @@ As the facilitator, your role during the meeting is:
 4. **Push back on vagueness** — if an agent makes an unanchored claim, challenge them:
    `SendMessage(to="{agent}", message="You mentioned {claim} — can you point to a specific file, metric, or user behavior that supports this?")`
 5. **Track discussion signals** — note which topics generate cross-agent debate, where agents agree vs. disagree, what nobody talks about
-6. **Do NOT cut the meeting short** — let agents finish their discussions. The meeting ends when all agents have sent their CLOSING message.
+6. **Update companion page** (if enabled) — append messages and findings as they arrive
+
+**Timer management:**
+
+The meeting has a default duration of **{meeting_duration} minutes** (user-configurable, default 15).
+
+1. **At `meeting_duration - 2` minutes** — broadcast a 2-minute warning to ALL agents:
+   `SendMessage(to="{each-agent}", message="2-MINUTE WARNING: Please wrap up with your final priorities and send your CLOSING message.")`
+
+2. **At `meeting_duration` minutes** — the meeting is over. Send to all agents who haven't sent CLOSING:
+   `SendMessage(to="{each-agent}", message="Time's up. Please send your CLOSING message now with your #1 priority and action items.")`
+
+3. **At `meeting_duration + 1` minute** — hard stop. If agents still haven't sent CLOSING, proceed to Step 5 anyway. Use whatever they've said so far.
+
+**Early completion:** If ALL agents have sent their CLOSING message before the timer expires, proceed to Step 5 immediately. Don't wait for the clock.
 
 ### Step 5: Close the Meeting
 
-Once all agents have sent CLOSING messages (or after reasonable discussion time):
+The meeting ends when EITHER:
+- All agents have sent CLOSING messages, OR
+- The timer has expired (meeting_duration + 1 minute)
+
+Then:
 
 1. Send a final message to all agents:
    `SendMessage(to="{each-agent}", message="Meeting concluded. Thank you all.")`
 2. `TeamDelete(name="meeting-{project-slug}")`
+3. If companion page is enabled, update status badge to "Observer" and status text to "Observer writing report..."
 
 ---
 

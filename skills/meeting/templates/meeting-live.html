@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CEO Meeting — {{PROJECT_NAME}}</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; }
+
+    :root {
+      --bg-primary: #0f0f23;
+      --bg-secondary: #1a1a3e;
+      --bg-card: #1e1e42;
+      --bg-message: #252550;
+      --border: #2a2a5a;
+      --text-primary: #e4e4f0;
+      --text-secondary: #a0a0c0;
+      --text-muted: #6a6a8a;
+      --accent: #00d4ff;
+      --accent-dim: rgba(0, 212, 255, 0.15);
+
+      /* Department colors */
+      --clr-engineering: #00d4ff;
+      --clr-security: #e74c3c;
+      --clr-product: #f0b232;
+      --clr-design: #8B5CF6;
+      --clr-growth: #2ecc71;
+      --clr-qa: #f39c12;
+      --clr-devops: #3498db;
+      --clr-facilitator: #a0a0c0;
+      --clr-observer: #e74c3c;
+
+      /* Severity colors */
+      --sev-p0: #e74c3c;
+      --sev-p1: #f39c12;
+      --sev-p2: #f1c40f;
+      --sev-p3: #95a5a6;
+    }
+
+    /* ===== LAYOUT ===== */
+    .app {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      grid-template-columns: 220px 1fr 280px;
+      height: 100vh;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-left { display: flex; align-items: center; gap: 12px; }
+    .header-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: 0.5px;
+    }
+    .header-project {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .timer {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg-primary);
+    }
+    .timer.warning { color: var(--sev-p1); border-color: var(--sev-p1); }
+    .timer.ended { color: var(--sev-p0); border-color: var(--sev-p0); }
+    .status-badge {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 10px;
+    }
+    .status-badge.in-progress {
+      background: rgba(0, 212, 255, 0.15);
+      color: var(--accent);
+    }
+    .status-badge.observer {
+      background: rgba(139, 92, 246, 0.15);
+      color: var(--clr-design);
+    }
+    .status-badge.complete {
+      background: rgba(46, 204, 113, 0.15);
+      color: var(--clr-growth);
+    }
+
+    /* ===== ROSTER SIDEBAR ===== */
+    .roster {
+      grid-row: 2;
+      overflow-y: auto;
+      padding: 16px 12px;
+      border-right: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+    .roster-title {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+    .attendee {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px;
+      border-radius: 8px;
+      margin-bottom: 4px;
+      transition: background 0.15s;
+    }
+    .attendee:hover { background: var(--bg-card); }
+    .attendee-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .attendee-info { min-width: 0; }
+    .attendee-role {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .attendee-agent {
+      font-size: 10px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .attendee-status {
+      font-size: 9px;
+      margin-left: auto;
+      flex-shrink: 0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+    .attendee-status.speaking { background: rgba(0, 212, 255, 0.15); color: var(--accent); }
+    .attendee-status.done { background: rgba(46, 204, 113, 0.15); color: var(--clr-growth); }
+
+    /* ===== TRANSCRIPT ===== */
+    .transcript {
+      grid-row: 2;
+      overflow-y: auto;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .transcript::-webkit-scrollbar { width: 6px; }
+    .transcript::-webkit-scrollbar-track { background: transparent; }
+    .transcript::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .message {
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--bg-message);
+      border-left: 3px solid var(--clr-engineering);
+    }
+    .message-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .message-sender {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .message-time {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+    .message-tags { display: flex; gap: 4px; margin-left: auto; }
+    .tag {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tag-p0 { background: rgba(231, 76, 60, 0.2); color: var(--sev-p0); }
+    .tag-p1 { background: rgba(243, 156, 18, 0.2); color: var(--sev-p1); }
+    .tag-p2 { background: rgba(241, 196, 15, 0.2); color: var(--sev-p2); }
+    .tag-p3 { background: rgba(149, 165, 166, 0.2); color: var(--sev-p3); }
+    .tag-confidence {
+      background: rgba(0, 212, 255, 0.1);
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .message-body {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-primary);
+    }
+    .message-body code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      background: rgba(0, 212, 255, 0.08);
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: var(--accent);
+    }
+    .message.facilitator {
+      background: var(--bg-card);
+      border-left-color: var(--clr-facilitator);
+    }
+    .message.system {
+      background: transparent;
+      border-left: none;
+      text-align: center;
+      padding: 6px;
+    }
+    .message.system .message-body {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ===== FINDINGS SIDEBAR ===== */
+    .findings {
+      grid-row: 2;
+      overflow-y: auto;
+      padding: 16px 12px;
+      border-left: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+    .findings::-webkit-scrollbar { width: 6px; }
+    .findings::-webkit-scrollbar-track { background: transparent; }
+    .findings::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .findings-title {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+    .findings-section {
+      margin-bottom: 16px;
+    }
+    .findings-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .findings-section-title.p0 { background: rgba(231, 76, 60, 0.15); color: var(--sev-p0); }
+    .findings-section-title.p1 { background: rgba(243, 156, 18, 0.15); color: var(--sev-p1); }
+    .findings-section-title.p2 { background: rgba(241, 196, 15, 0.15); color: var(--sev-p2); }
+    .findings-section-title.p3 { background: rgba(149, 165, 166, 0.15); color: var(--sev-p3); }
+    .finding {
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      border-radius: 6px;
+      background: var(--bg-card);
+      border-left: 2px solid var(--sev-p3);
+    }
+    .finding.p0 { border-left-color: var(--sev-p0); }
+    .finding.p1 { border-left-color: var(--sev-p1); }
+    .finding.p2 { border-left-color: var(--sev-p2); }
+    .finding-text {
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--text-primary);
+    }
+    .finding-meta {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+    .findings-empty {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 8px;
+    }
+    .findings-count {
+      font-size: 11px;
+      color: var(--text-secondary);
+      padding: 0 4px;
+      margin-bottom: 12px;
+    }
+
+    /* ===== STATUS BAR ===== */
+    .statusbar {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 20px;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .statusbar-left { display: flex; gap: 16px; }
+    .statusbar-item { display: flex; align-items: center; gap: 4px; }
+    .statusbar-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--clr-growth);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .statusbar-dot.idle { background: var(--text-muted); animation: none; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .app {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+      }
+      .roster {
+        grid-row: 2;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 4px;
+        padding: 8px 12px;
+      }
+      .roster-title { display: none; }
+      .attendee { flex-shrink: 0; }
+      .transcript { grid-row: 3; }
+      .findings {
+        grid-row: 4;
+        border-left: none;
+        border-top: 1px solid var(--border);
+        max-height: 200px;
+      }
+      .statusbar { grid-row: 5; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-left">
+        <span class="header-title">CEO Meeting</span>
+        <span class="header-project">{{PROJECT_NAME}}</span>
+      </div>
+      <div class="header-right">
+        <span class="timer" id="timer">{{DURATION}}:00</span>
+        <span class="status-badge in-progress" id="status-badge">In Progress</span>
+      </div>
+    </header>
+
+    <!-- ROSTER -->
+    <aside class="roster">
+      <div class="roster-title">Attendees</div>
+      <!-- ROSTER_START -->
+      <!-- Facilitator injects attendee entries here. Format:
+      <div class="attendee" data-role="role-slug">
+        <div class="attendee-dot" style="background: var(--clr-engineering)"></div>
+        <div class="attendee-info">
+          <div class="attendee-role">Company Role Title</div>
+          <div class="attendee-agent">Agent Name</div>
+        </div>
+      </div>
+      -->
+      <!-- ROSTER_END -->
+    </aside>
+
+    <!-- TRANSCRIPT -->
+    <main class="transcript" id="transcript">
+      <!-- TRANSCRIPT_START -->
+      <!-- Facilitator appends message entries here. Format:
+
+      <div class="message" style="border-left-color: var(--clr-engineering)">
+        <div class="message-header">
+          <span class="message-sender" style="color: var(--clr-engineering)">Lead Engineer</span>
+          <span class="message-time">14:03</span>
+          <div class="message-tags">
+            <span class="tag tag-p1">P1</span>
+            <span class="tag tag-confidence">8/10</span>
+          </div>
+        </div>
+        <div class="message-body">Message content here...</div>
+      </div>
+
+      System messages:
+      <div class="message system">
+        <div class="message-body">Meeting started — 8 attendees</div>
+      </div>
+      -->
+      <!-- TRANSCRIPT_END -->
+    </main>
+
+    <!-- FINDINGS -->
+    <aside class="findings">
+      <div class="findings-title">Findings</div>
+      <div class="findings-count" id="findings-count">0 findings</div>
+      <!-- FINDINGS_START -->
+      <!-- Facilitator injects finding entries here, grouped by severity. Format:
+
+      <div class="findings-section">
+        <div class="findings-section-title p0">P0 Critical</div>
+        <div class="finding p0">
+          <div class="finding-text">JWT stored in localStorage</div>
+          <div class="finding-meta">Head of Security — 9/10 — auth.ts:47</div>
+        </div>
+      </div>
+      -->
+      <div class="findings-empty" id="findings-empty">Findings will appear here as agents raise them...</div>
+      <!-- FINDINGS_END -->
+    </aside>
+
+    <!-- STATUS BAR -->
+    <footer class="statusbar">
+      <div class="statusbar-left">
+        <div class="statusbar-item">
+          <div class="statusbar-dot" id="status-dot"></div>
+          <span id="status-text">Meeting in progress...</span>
+        </div>
+        <div class="statusbar-item">
+          <span id="message-count">0 messages</span>
+        </div>
+      </div>
+      <div>{{DATE}}</div>
+    </footer>
+  </div>
+
+  <script>
+    // Auto-scroll transcript to bottom when new content is added
+    const transcript = document.getElementById('transcript');
+    const observer = new MutationObserver(() => {
+      transcript.scrollTop = transcript.scrollHeight;
+    });
+    observer.observe(transcript, { childList: true, subtree: true });
+
+    // Auto-refresh every 3 seconds to pick up facilitator updates
+    let refreshInterval = setInterval(() => {
+      fetch(window.location.href + '?t=' + Date.now())
+        .then(r => r.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+
+          // Update transcript
+          const newTranscript = doc.getElementById('transcript');
+          if (newTranscript && newTranscript.innerHTML !== transcript.innerHTML) {
+            transcript.innerHTML = newTranscript.innerHTML;
+          }
+
+          // Update findings
+          const findings = document.querySelector('.findings');
+          const newFindings = doc.querySelector('.findings');
+          if (newFindings && newFindings.innerHTML !== findings.innerHTML) {
+            findings.innerHTML = newFindings.innerHTML;
+          }
+
+          // Update roster
+          const roster = document.querySelector('.roster');
+          const newRoster = doc.querySelector('.roster');
+          if (newRoster && newRoster.innerHTML !== roster.innerHTML) {
+            roster.innerHTML = newRoster.innerHTML;
+          }
+
+          // Update header badges
+          const badge = doc.getElementById('status-badge');
+          if (badge) document.getElementById('status-badge').outerHTML = badge.outerHTML;
+          const timer = doc.getElementById('timer');
+          if (timer) document.getElementById('timer').outerHTML = timer.outerHTML;
+
+          // Update status bar
+          const statusText = doc.getElementById('status-text');
+          if (statusText) document.getElementById('status-text').textContent = statusText.textContent;
+          const msgCount = doc.getElementById('message-count');
+          if (msgCount) document.getElementById('message-count').textContent = msgCount.textContent;
+          const statusDot = doc.getElementById('status-dot');
+          if (statusDot) document.getElementById('status-dot').className = statusDot.className;
+
+          // Stop refreshing if meeting is complete
+          const badgeEl = document.getElementById('status-badge');
+          if (badgeEl && badgeEl.classList.contains('complete')) {
+            clearInterval(refreshInterval);
+          }
+        })
+        .catch(() => {}); // silently ignore fetch errors
+    }, 3000);
+  </script>
+</body>
+</html>
